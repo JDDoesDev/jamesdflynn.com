@@ -1,0 +1,572 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>JSON-LD Markup Generator &#8211; J.D. Flynn and the Adventures in Web Development</title>
+<meta name="description" content="The JSON-LD Markup Generator is an ongoing project that allows you to enter in information and generate some schema.org markup that you can insert into emails, web pages, or anything else you want!">
+<meta name="keywords" content="JSON-LD, development, SEO schema markup, rich snippets">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="JSON-LD Markup Generator">
+<meta name="twitter:description" content="The JSON-LD Markup Generator is an ongoing project that allows you to enter in information and generate some schema.org markup that you can insert into emails, web pages, or anything else you want!">
+<meta name="twitter:site" content="@JDDoesDev">
+<meta name="twitter:creator" content="@JDDoesDev">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.local/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON-LD Markup Generator">
+<meta property="og:description" content="The JSON-LD Markup Generator is an ongoing project that allows you to enter in information and generate some schema.org markup that you can insert into emails, web pages, or anything else you want!">
+<meta property="og:url" content="http://blog.local/development/json-ld-markup-generator/">
+<meta property="og:site_name" content="J.D. Flynn and the Adventures in Web Development">
+
+<!-- Webmaster Tools verfication -->
+<meta name="google-site-verification" content="byemwVOh8JIg3XatAJz2TwH16xSHbOLLKl47oQTTLZE">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60490227-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+
+<link rel="canonical" href="http://blog.local/development/json-ld-markup-generator/">
+<link href="http://blog.local/feed.xml" type="application/atom+xml" rel="alternate" title="J.D. Flynn and the Adventures in Web Development Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://blog.local/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://blog.local/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://blog.local/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://blog.local/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+<script type="application/ld+json">
+{ "@context" : "http://schema.org",
+  "@type" : "Person",
+  "name" : "J.D. Flynn",
+  "jobTitle" : "Web Developer, Blogger, SEO Enthusiast",
+  "url" : "https://www.jamesdflynn.com",
+  "sameAs" : [ "http://www.linkedin.com/in/jflynn8",
+      "http://www.twitter.com/JDDoesDev",
+      "http://www.github.com/jflynnSMG"],
+  "description" : "J.D. Flynn is a web developer with a newfound passion for SEO and learning every aspect of it that he can.  He can be found on Twitter, LinkedIn, Github, or on his blog jamesdflynn.com"
+}
+</script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://blog.local/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://blog.local/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://blog.local/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://blog.local/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://blog.local/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://blog.local/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://blog.local/">J.D. Flynn and the Adventures in Web Development</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				        
+				    
+				    <li><a href="http://blog.local/" >Home</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="http://blog.local/posts/" >Blog Posts and Musings</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="http://blog.local/json-ld-schema-generator/" >JSON-LD Generator</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="http://blog.local/about/" >About J.D. Flynn</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+<div>
+
+
+	<img src="http://blog.local/images/profile.png" class="bio-photo" alt="J.D. Flynn bio photo">
+
+
+  <h3>J.D. Flynn</h3>
+  <p>Drupal developer by trade, geek by choice, getting stuff done in the Chicagoland area.</p>
+  <a href="mailto:jd@jamesdflynn.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>
+  <a href="http://twitter.com/JDDoesDev" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+  
+  
+  <a href="http://linkedin.com/in/jflynn8" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+  
+  
+  <a href="http://github.com/JDDoesDev" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a href="http://paypal.me/JDDoesDev" class="author-social" target="_blank"><i class="fa fa-fw fa-paypal"></i> Donate via Paypal</a>
+</div>
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="http://blog.local/development/json-ld-markup-generator/" rel="bookmark" title="JSON-LD Markup Generator">JSON-LD Markup Generator</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Banner Responsive -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9258516687573779"
+         data-ad-slot="5518211737"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="article-wrap">
+      <h2 id="json-ld-for-schema-got-you-down">JSON-LD for Schema Got You Down?</h2>
+
+<p>At SMX West one of the panels I attended that gained more attention from the developer side of me was structured data.  I’m sure if
+you’ve read previous posts, like this one on <a href="development/beauty-json-ld">The Beauty of JSON-LD</a> then you’d know that JSON-LD
+excites the hell out of me.  So I went ahead and made a thing.</p>
+
+<h2 id="the-json-ld-generator">The JSON-LD Generator!</h2>
+
+<p>It slices, it dices, it really only produces JSON-LD Markup.</p>
+
+<p>The instructions are simple:</p>
+
+<ul>
+  <li>Select what kind of element you want to use</li>
+  <li>Fill out the fields you want to include</li>
+  <li>Copy the contents of the textarea to your clipboard</li>
+  <li>Test it at <a href="https://developers.google.com/structured-data/testing-tool/">Google’s Structured Data Testing Tool</a></li>
+  <li>Put it wherever you want it to go!</li>
+</ul>
+
+<h2 id="why-json-ld-instead-of-standard-markup">Why JSON-LD Instead of Standard Markup?</h2>
+
+<p>Standard HTML markup is difficult to get right.  There are a ton of <code>itemprop</code>, <code>itemscope</code>, and <code>itemtype</code> attributes that have to be
+scattered throughout your page just to get one thing.  With JSON-LD you put the generated script in the <code>&lt;head&gt;</code> section of your page
+or anywhere inside the HTML email you’re sending out and you’re done!</p>
+
+<h2 id="why-any-markup-at-all">Why ANY Markup at All?</h2>
+
+<p>If you use Google (and you do) you may have noticed that some things appear differently.  It happens because of structured data
+embedded in the code.  If you have an Android phone then you might notice tha Google knows you better than you do.  This is also
+because of structured data in the code.  When an email goes through GMail with structured data, Google picks that data out, and uses
+it to tell you when something is going to happen like a concert, a flight, or other events.</p>
+
+<p>In short, it’s a good thing to do if you have anything you want people to know about.</p>
+
+<h2 id="the-json-ld-structured-data-generator-v01">The JSON-LD Structured Data Generator v0.1</h2>
+
+<p>Just a note, this is still in beta.  Please report any bugs to <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#106;&#100;&#064;&#106;&#097;&#109;&#101;&#115;&#100;&#102;&#108;&#121;&#110;&#110;&#046;&#099;&#111;&#109;">&#106;&#100;&#064;&#106;&#097;&#109;&#101;&#115;&#100;&#102;&#108;&#121;&#110;&#110;&#046;&#099;&#111;&#109;</a> and let me know
+your thoughts in the comments.  I’ll be adding new data types in the coming days and trying to find better ways to get the data
+to you.</p>
+
+<p>If you like it, tell your friends.  If not, tell me!</p>
+
+<div id="formHolder">
+  <form id="selector">
+    Select the type of markup you want to create:
+    <select id="form-selector" name="form-selector">
+      <option>---</option>
+    </select>
+  </form>
+
+  <form id="person" style="display:none;">
+    <input type="hidden" data-path="@context" value="http://www.schema.org" />
+    <input type="hidden" data-path="@type" value="person" />
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text" data-path="name" />
+    <label for="jobTitle">Job Title:</label>
+    <input id="jobTitle" name="jobTitle" type="text" data-path="jobTitle" />
+    <label for="url">URL:</label>
+    <input id="url" name="url" type="text" data-path="url" />
+    <input type="hidden" data-path="address.@type" value="PostalAddress" />
+    <label for="address">Address:</label>
+    <input id="address" name="address" type="text" data-path="address.streetAddress" />
+    <label for="po-box">PO Box:</label>
+    <input id="po-box" name="po-box" type="text" data-path="address.postOfficeBoxNumber" />
+    <label for="addressLocality">City:</label>
+    <input id="addressLocality" name="addressLocality" type="text" data-path="address.addressLocality" />
+    <label for="addressRegion">State/Region:</label>
+    <input id="addressRegion" name="addressRegion" type="text" data-path="address.addressRegion" />
+    <label for="postalCode">Zip/Postal Code:</label>
+    <input id="postalCode" name="postalCode" type="text" data-path="address.postalCode" />
+    <label for="addressCountry">Country:</label>
+    <input id="addressCountry" name="addressCountry" type="text" data-path="address.addressCountry" />
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="text" data-path="email" />
+    <label for="telephone">Telephone (please include country code, +1 for USA):</label>
+    <input id="telephone" name="telephone" type="text" data-path="telephone" />
+    <label for="birthDate">Birth Date (international format YYYY-MM-DD):</label>
+    <input id="birthDate" name="birthDate" type="text" data-path="birthDate" />
+  </form>
+
+  <form id="product" style="display:none;">
+    <input type="hidden" data-path="@context" value="http://www.schema.org" />
+    <input type="hidden" data-path="@type" value="product" />
+    <label for="brand">Brand:</label>
+    <input id="brand" name="brand" type="text" data-path="brand" />
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text" data-path="name" />
+    <label for="image">Image (relative or absolute url):</label>
+    <input id="image" name="image" type="text" data-path="image" />
+    <label for="desription">Description:</label>
+    <textarea rows="5" cols="50" name="description" data-path="description"></textarea>
+    <input type="hidden" data-path="aggregateRating.@type" value="aggregateRating" />
+    <label for="rating">Rating:</label>
+    <input id="rating" name="rating" type="text" data-path="aggregateRating.ratingValue" />
+    <label for="reviews">Based on how many reviews?</label>
+    <input id="reviews" name="reviews" type="text" data-path="aggregateRating.reviewCount" />
+  </form>
+  <form id="event" style="display:none;">
+    <input type="hidden" data-path="@context" value="http://www.schema.org" />
+    <label for="eventType">Select Event Type</label>
+    <select name="eventType" type="select" data-path="@type">
+      <option value="Event"></option>
+      <option value="BusinessEvent"></option>
+      <option value="ChildrensEvent"></option>
+      <option value="ComedyEvent"></option>
+      <option value="DanceEvent"></option>
+      <option value="EducationEvent"></option>
+      <option value="Festival"></option>
+      <option value="FoodEvent"></option>
+      <option value="LiteraryEvent"></option>
+      <option value="MusicEvent"></option>
+      <option value="SaleEvent"></option>
+      <option value="SocialEvent"></option>
+      <option value="SportsEvent"></option>
+      <option value="TheaterEvent"></option>
+      <option value="UserInteraction"></option>
+      <option value="VisualArtsEvent"></option>
+    </select>
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text" data-path="name" />
+    <label for="url">URL:</label>
+    <input id="url" name="url" type="text" data-path="url" />
+    <label for="desription">Description:</label>
+    <textarea rows="5" cols="50" name="description" data-path="description"></textarea>
+    <label for="startDate">Start Date(mm/dd/yyyy hh:mm am/pm):</label>
+    <input id="startDate" name="startDate" type="datetime-local" data-path="startDate" class="start-date" />
+    <label for="endDate">End Date(mm/dd/yyyy hh:mm am/pm):</label>
+    <input id="endDate" name="endDate" type="datetime-local" data-path="endDate" class="end-date" />
+    <input type="hidden" data-path="location.@type" value="Place" />
+    <label for="location-name">Venue Name:</label>
+    <input id="location-name" name="location-name" type="text" data-path="location.name" />
+    <label for="location-url">Venue URL:</label>
+    <input id="location-url" name="location-url" type="text" data-path="location.sameAs" />
+    <input type="hidden" data-path="location.address.@type" value="PostalAddress" />
+    <label for="address">Address:</label>
+    <input id="address" name="address" type="text" data-path="location.address.streetAddress" />
+    <label for="addressLocality">City:</label>
+    <input id="addressLocality" name="addressLocality" type="text" data-path="location.address.addressLocality" />
+    <label for="addressRegion">State/Region:</label>
+    <input id="addressRegion" name="addressRegion" type="text" data-path="location.address.addressRegion" />
+    <label for="postalCode">Zip/Postal Code:</label>
+    <input id="postalCode" name="postalCode" type="text" data-path="location.address.postalCode" />
+    <label for="addressCountry">Country:</label>
+    <input id="addressCountry" name="addressCountry" type="text" data-path="location.address.addressCountry" />
+    <input type="hidden" data-path="offers.@type" value="Offer" />
+    <label for="offerDesc">Offer Description:</label>
+    <input id="offerDesc" name="offerDesc" type="text" data-path="offers.description" />
+    <label for="offerURL">Offer URL:</label>
+    <input id="offerURL" name="offerURL" type="text" data-path="offers.url" />
+    <label for="offerPrice">Offer Price:</label>
+    <input id="offerPrice" name="offerPrice" type="text" data-path="offers.price" />
+  </form>
+  <form id="organization" style="display:none;">
+    <input type="hidden" data-path="@context" value="http://www.schema.org" />
+    <label for="orgType">Select Organization Type:</label>
+    <select name="orgType" data-path="@type">
+      <option value="Organization"></option>
+      <option value="Corporation"></option>
+      <option value="EducationalOrganization"></option>
+      <option value="GovernmentOrganization"></option>
+      <option value="LocalBusiness"></option>
+      <option value="NGO"></option>
+      <option value="PerformingGroup"></option>
+      <option value="SportsTeam"></option>
+    </select>
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text" data-path="name" />
+    <label for="url">URL:</label>
+    <input id="url" name="url" type="text" data-path="url" />
+    <label for="desription">Description:</label>
+    <textarea rows="5" cols="50" name="description" data-path="description"></textarea>
+    <input type="hidden" data-path="address.@type" value="PostalAddress" />
+    <label for="address">Address:</label>
+    <input id="address" name="address" type="text" data-path="address.streetAddress" />
+    <label for="po-box">PO Box:</label>
+    <input id="po-box" name="po-box" type="text" data-path="address.postOfficeBoxNumber" />
+    <label for="addressLocality">City:</label>
+    <input id="addressLocality" name="addressLocality" type="text" data-path="address.addressLocality" />
+    <label for="addressRegion">State/Region:</label>
+    <input id="addressRegion" name="addressRegion" type="text" data-path="address.addressRegion" />
+    <label for="postalCode">Zip/Postal Code:</label>
+    <input id="postalCode" name="postalCode" type="text" data-path="address.postalCode" />
+    <label for="addressCountry">Country:</label>
+    <input id="addressCountry" name="addressCountry" type="text" data-path="address.addressCountry" />
+    <label for="openingHours">Open Hours (2 letter days and 24 hour time. Example: "Mo, Tu, We, Th, Fr 10:00-18:00" :</label>
+    <input id="openingHours" name="openingHours" type="text" data-path="openingHours" />
+    <input type="hidden" data-path="contactPoint.@type" value="ContactPoint" />
+    <label for="contactType">Contact Type:</label>
+    <input id="contactType" name="contactType" type="text" data-path="contactPoint.contactType" />
+    <label for="telephone">Telephone:</label>
+    <input id="telephone" name="telephone" type="text" data-path="contactPoint.telephone" />
+  </form>
+</div>
+<div class="output">
+  <textarea class="json">
+
+  </textarea>
+  <div id="buttonHolder">
+    <button id="reset">
+      Reset Form
+    </button>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    //function to populate the form selector based
+    //on the forms that are available.
+
+    $('form').each(function() {
+      if ($(this).attr('id') != 'selector') {
+        var option = $(this).attr('id');
+        $('select#form-selector').append('<option value="' + option + '">' + option.toUpperCase() + '</option>');
+      };
+    });
+    $('option').each(function() {
+      console.log($(this).html());
+      if (!$(this).html() || $(this).html() === "") {
+        $(this).html($(this).val());
+      }
+    });
+    var selected;
+    var old;
+
+    //changes the displayed form based on the selection
+    $("#selector").change(function() {
+      old = selected;
+      selected = "#" + $("#selector option:selected").val();
+      if (old) {//closes the old form
+        $(old).slideToggle();
+      }
+      $(selected).slideToggle();
+      $("pre").html("");
+      // clears out the <pre> container for the next one
+      //cycles through the elements of the form and
+      //clears the value on change.
+      $('input,textarea').each(function() {
+        if ($(this).attr('type') != 'hidden') {
+          $(this).val("");
+        };
+      });
+      var element = {};
+      //instantiate the object
+
+      // fire when a key is pressed in an input or textarea
+      $(selected + ' input,' + selected + ' textarea,' + selected + ' select').keyup(function() {
+        // this iterates through the whole form.  @TODO see if there's a better way
+        element = {};
+        // this is highly inefficient, but it keeps things in order
+        $(selected + ' input,' + selected + ' textarea,' + selected + ' select').each(function() {
+          //selects the data-path attr and splits it if necessary.
+          //the first is checked to see if it's alreay the key
+          //and the second is used as the inner array
+          var path = $(this).data('path').split('.'),
+              currentData =
+              element;
+          for (var i = 0; i < path.length - 1; i++) {
+            if (!currentData[path[i]]) {
+              //if the first part of data-path doesn't exist then it becomes
+              //the key for this array
+              currentData[path[i]] = {};
+            }
+            //console.log(currentData[path[i]]);
+            currentData = currentData[path[i]];
+          }
+          //if it's empty, then it doesn't exist
+          currentData[path[path.length - 1]] = ($(this).val().length > 0 ? $(this).val() : null);
+          if (currentData[path[path.length - 1]] === null) {
+            //get rid of the data that doesn't exist
+            delete currentData[path[path.length - 1]];
+          }
+          //prep it for output
+          $(".json").val(JSON.stringify(element, null, 2));
+        });
+      });
+    });
+
+    //this function clears the <pre> and all fields
+    $("#reset").click(function() {
+      $("pre").html("");
+      $('input,textarea,select').each(function() {
+        if ($(this).attr('type') != 'hidden') {
+          $(this).val("");
+        }
+      });
+    });
+  });
+</script>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Share on</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://blog.local/development/json-ld-markup-generator/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.local/development/json-ld-markup-generator/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://blog.local/development/json-ld-markup-generator/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+        <p class="byline"><strong>JSON-LD Markup Generator</strong> was published on <time datetime="2015-03-22T15:10:35-05:00">March 22, 2015</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://blog.local/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="http://blog.local/development/secure-sites-https/" title="Securing Your Sites for HTTPS">Securing Your Sites for HTTPS</a></li>
+    
+      <li><a href="http://blog.local/development/beauty-json-ld/" title="The Unbelieveable Beauty of JSON-LD">The Unbelieveable Beauty of JSON-LD</a></li>
+    
+      <li><a href="http://blog.local/development/seo-information-overload/" title="How Do You Deal with SEO Information Overload?">How Do You Deal with SEO Information Overload?</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    
+<div class="google-ads">
+  <!-- 320 x 50 ad -->
+  <!-- Jekyll Footer -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:320px;height:50px"
+       data-ad-client="ca-pub-9258516687573779"
+       data-ad-slot="7134545736"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div><!-- /.google-ads -->
+
+
+<span>&copy; 2017 J.D. Flynn.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://blog.local/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://blog.local/assets/js/scripts.min.js"></script>
+
+  
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'jamesdflynn'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</body>
+</html>

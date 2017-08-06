@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">J.D. Flynn and the Adventures in Web Development</title>
+<generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://blog.local/feed.xml" />
+<link rel="alternate" type="text/html" href="http://blog.local" />
+<updated>2017-08-06T14:05:04-05:00</updated>
+<id>http://blog.local/</id>
+<author>
+  <name>J.D. Flynn</name>
+  <uri>http://blog.local/</uri>
+  <email>jd@jamesdflynn.com</email>
+</author>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Securing Your Sites for HTTPS]]></title>
+  <link rel="alternate" type="text/html" href="http://blog.local/development/secure-sites-https/" />
+  <id>http://blog.local/development/secure-sites-https</id>
+  <published>2015-03-29T15:17:14-05:00</published>
+  <updated>2015-03-29T15:17:14-05:00</updated>
+  <author>
+    <name>J.D. Flynn</name>
+    <uri>http://blog.local</uri>
+    <email>jd@jamesdflynn.com</email>
+  </author>
+  <content type="html">
+    &lt;h2 id=&quot;why-do-you-need-to-be-secure&quot;&gt;Why Do You Need to be Secure?&lt;/h2&gt;
+
+&lt;p&gt;The world is a dangerous place.  There is a lot of information out there, and some of it is more sensitive than the rest.  Your name, your emails, your passwords, social security, birth dates, credit card numbers, etc.  Many people just type their info into the forms with no thought as to what risk is being taken, but others, like myself, won’t even enter an email address without seeing the padlock in the URL bar.&lt;/p&gt;
+
+&lt;div style=&quot;padding: 3px; background-color: #fefefe; border: 1px solid black; text-align: center; width: 100px; margin: auto;&quot;&gt;
+  &lt;img src=&quot;/images/padlock.png&quot; alt=&quot;Safety First!&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;But where does that padlock come from and what does it mean?&lt;/p&gt;
+
+&lt;h2 id=&quot;lock-it-down&quot;&gt;Lock It Down!&lt;/h2&gt;
+
+&lt;p&gt;The padlock is a promise.  It’s a promise that data is secure while on your site.  It’s a promise that you have made the effort to protect your users’ information.  Most importantly, it’s a promise that you care about your users and you want them to feel safe while on your site.&lt;/p&gt;
+
+&lt;p&gt;Gary Illyes (&lt;a href=&quot;http://twitter.com/methode&quot;&gt;@methode&lt;/a&gt;) made it as clear, as a direct Google representative, that Google was offering a rankings boost for sites with the HTTPS/SSL protocol in effect, citing &lt;a href=&quot;http://www.simplypsychology.org/maslow.html&quot;&gt;Maslow’s Hierarchy of Needs&lt;/a&gt; as one of the driving factors.&lt;/p&gt;
+&lt;div style=&quot;height: 200px; width: 400px; margin: auto; float: left;&quot;&gt;
+ &lt;img src=&quot;/images/MaslowsHierarchyOfNeeds.png&quot; alt=&quot;Maslow&#39;s Hierarchy of Needs&quot; style=&quot;height: 200px; width: auto;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Some concerns that have been voiced are speed and cost.  Website owners worry that passing their sites through the extra level of protocols will create a delay in getting the content from host to the user’s browser.  Gary Illyes had the strongest argument against that concern.  To paraphrase, he said that Google is in the business of being fast.  They are not going to recommend anything that is going to have a noticeable negative effect on the speed.&lt;/p&gt;
+
+&lt;p&gt;The other concern, that of cost, really depends on the level of security that a site needs.  I think that everyone can agree that there are different levels of information.  A name and email are not as high priority as, say a credit card or social security number.  With that being said, there are free, shared certificates available, or there are certificates that range in price to the tens of thousands of dollars.&lt;/p&gt;
+
+&lt;p&gt;My page, the one you’re reading, opted for a free certificate, compliments of &lt;a href=&quot;www.cloudflare.com&quot;&gt;CloudFlare&lt;/a&gt;, however, depending on what information you’re collecting from your users, you might want to consider paying for a certificate with a warranty.  A warranty covers the end user, not the site owner, in the event of loss due to fraud or data breech.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-get-secure&quot;&gt;How to Get Secure&lt;/h2&gt;
+
+&lt;p&gt;The process itself is relatively simple.  From a very, very high level view, all you do is get your certificate and point your site to https instead of http.  The process itself is a bit more involved than that.&lt;/p&gt;
+
+&lt;p&gt;I’m going to try and walk through the process I went through for this site, and for one of the sites I work on that uses a content management system behind a content provider as well.&lt;/p&gt;
+
+&lt;p&gt;For this small blog, the process was simple:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Set up a CloudFlare account.&lt;/li&gt;
+  &lt;li&gt;Change the nameservers over to the provided CloudFlare nameservers
+– This part depends on your hosting provider and DNS provider&lt;/li&gt;
+  &lt;li&gt;Activate “Flexible SSL”&lt;/li&gt;
+  &lt;li&gt;Change the links to reflect the change&lt;/li&gt;
+  &lt;li&gt;Redirect your site to HTTPS (more on this in a bit)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For the larger sites I work on, the process is not really that much more complicated, aside from the size of the site.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CloudFlare&lt;/li&gt;
+  &lt;li&gt;Nameservers&lt;/li&gt;
+  &lt;li&gt;Flexible SSL (or Full if you have your own certificate)&lt;/li&gt;
+  &lt;li&gt;Change the links&lt;/li&gt;
+  &lt;li&gt;Redirect&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now how do you redirect?  Good question!&lt;/p&gt;
+
+&lt;p&gt;The simplest way to redirect is through an .htaccess file in your site’s root directory.  For those unfamiliar, the .htaccess file is the file that contains directives on a directory by directory basis.  Of course, if you have access to your httpd config file, that’s really the best way to go.&lt;/p&gt;
+
+&lt;p&gt;The standard method for redirecting over to HTTPS through a .htaccess file is&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;What do those lines mean?  Let’s break it down line by line.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;RewriteEngine On&lt;/code&gt; turns on the part of Apache that processes and redirects the URL&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;RewriteCond %{HTTPS} off&lt;/code&gt; checks to see if the url contains HTTPS&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}&lt;/code&gt; changes the URL over to the new, more secure version.&lt;/p&gt;
+
+&lt;p&gt;Pretty simple, right? For many sites, that’s all there is to it.&lt;/p&gt;
+
+&lt;p&gt;Something else to consider, though, is whether or not your site is behind an accelerator like Varnish and how that might affect your redirects and/or CMS.  The CMS I use at my job, Drupal, relies quite a bit on the &lt;code&gt;$_SERVER[]&lt;/code&gt; superglobal to tell whether or not the site has been redirected to the HTTPS version.  Our Google Fonts module (@font-your-face) decides whether or not it’s going pull content from the http or https version.  In fact, the code itself reads:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;if (isset($_SERVER[&amp;#39;HTTPS&amp;#39;]) &amp;amp;&amp;amp; $_SERVER[&amp;#39;HTTPS&amp;#39;] == &amp;#39;on&amp;#39;) {&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  $base = &amp;#39;https://fonts.googleapis.com/css?family=&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The problem lies in the fact that &lt;code&gt;$_SERVER[&#39;HTTPS&#39;]&lt;/code&gt; is not set behind Varnish.  Instead, we have &lt;code&gt;$_SERVER[&#39;HTTP_X_FORWARDED_PROTO&#39;]&lt;/code&gt; with a value of either &lt;code&gt;http&lt;/code&gt; or &lt;code&gt;https&lt;/code&gt; so, we can use that to our advantage in an IF/ELSE statement.  The one that I use is:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;if ( (isset($_SERVER[&amp;quot;HTTPS&amp;quot;]) &amp;amp;&amp;amp; strtolower($_SERVER[&amp;quot;HTTPS&amp;quot;]) == &amp;quot;on&amp;quot;)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  || (isset($_SERVER[&amp;quot;HTTP_X_FORWARDED_PROTO&amp;quot;]) &amp;amp;&amp;amp; $_SERVER[&amp;quot;HTTP_X_FORWARDED_PROTO&amp;quot;] == &amp;quot;https&amp;quot;)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  || (isset($_SERVER[&amp;quot;HTTP_HTTPS&amp;quot;]) &amp;amp;&amp;amp; $_SERVER[&amp;quot;HTTP_HTTPS&amp;quot;] == &amp;quot;on&amp;quot;)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  )  {&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  $_SERVER[&amp;quot;HTTPS&amp;quot;] = &amp;quot;on&amp;quot;;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;which covers pretty much every possibility and passes the right value through.&lt;/p&gt;
+
+&lt;h2 id=&quot;in-summary&quot;&gt;In Summary&lt;/h2&gt;
+
+&lt;p&gt;It’s really not all that difficult to get setup, nor is it expensive at all depending on your needs.  So, go forth, lock those padlocks, and make your users feel secure.  Be sure to clear your caches and check to make sure none of your images are hard-coded with &lt;code&gt;http&lt;/code&gt; addresses.  A good tool to use to check why you might not be getting the green padlock is &lt;a href=&quot;www.whynopadlock.com&quot;&gt;Why No Padlock&lt;/a&gt; which will check your site and tell you what might be going on.&lt;/p&gt;
+
+&lt;p&gt;Got any other suggestions on how else to secure your sites?  Let me know.&lt;/p&gt;
+
+&lt;div style=&quot;clear:both&quot;&gt;&lt;/div&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/secure-sites-https/&quot;&gt;Securing Your Sites for HTTPS&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 29, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[JSON-LD Markup Generator]]></title>
+  <link rel="alternate" type="text/html" href="http://blog.local/development/json-ld-markup-generator/" />
+  <id>http://blog.local/development/json-ld-markup-generator</id>
+  <published>2015-03-22T15:10:35-05:00</published>
+  <updated>2015-03-22T15:10:35-05:00</updated>
+  <author>
+    <name>J.D. Flynn</name>
+    <uri>http://blog.local</uri>
+    <email>jd@jamesdflynn.com</email>
+  </author>
+  <content type="html">
+    &lt;h2 id=&quot;json-ld-for-schema-got-you-down&quot;&gt;JSON-LD for Schema Got You Down?&lt;/h2&gt;
+
+&lt;p&gt;At SMX West one of the panels I attended that gained more attention from the developer side of me was structured data.  I’m sure if
+you’ve read previous posts, like this one on &lt;a href=&quot;development/beauty-json-ld&quot;&gt;The Beauty of JSON-LD&lt;/a&gt; then you’d know that JSON-LD
+excites the hell out of me.  So I went ahead and made a thing.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-json-ld-generator&quot;&gt;The JSON-LD Generator!&lt;/h2&gt;
+
+&lt;p&gt;It slices, it dices, it really only produces JSON-LD Markup.&lt;/p&gt;
+
+&lt;p&gt;The instructions are simple:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Select what kind of element you want to use&lt;/li&gt;
+  &lt;li&gt;Fill out the fields you want to include&lt;/li&gt;
+  &lt;li&gt;Copy the contents of the textarea to your clipboard&lt;/li&gt;
+  &lt;li&gt;Test it at &lt;a href=&quot;https://developers.google.com/structured-data/testing-tool/&quot;&gt;Google’s Structured Data Testing Tool&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Put it wherever you want it to go!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;why-json-ld-instead-of-standard-markup&quot;&gt;Why JSON-LD Instead of Standard Markup?&lt;/h2&gt;
+
+&lt;p&gt;Standard HTML markup is difficult to get right.  There are a ton of &lt;code&gt;itemprop&lt;/code&gt;, &lt;code&gt;itemscope&lt;/code&gt;, and &lt;code&gt;itemtype&lt;/code&gt; attributes that have to be
+scattered throughout your page just to get one thing.  With JSON-LD you put the generated script in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section of your page
+or anywhere inside the HTML email you’re sending out and you’re done!&lt;/p&gt;
+
+&lt;h2 id=&quot;why-any-markup-at-all&quot;&gt;Why ANY Markup at All?&lt;/h2&gt;
+
+&lt;p&gt;If you use Google (and you do) you may have noticed that some things appear differently.  It happens because of structured data
+embedded in the code.  If you have an Android phone then you might notice tha Google knows you better than you do.  This is also
+because of structured data in the code.  When an email goes through GMail with structured data, Google picks that data out, and uses
+it to tell you when something is going to happen like a concert, a flight, or other events.&lt;/p&gt;
+
+&lt;p&gt;In short, it’s a good thing to do if you have anything you want people to know about.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-json-ld-structured-data-generator-v01&quot;&gt;The JSON-LD Structured Data Generator v0.1&lt;/h2&gt;
+
+&lt;p&gt;Just a note, this is still in beta.  Please report any bugs to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#106;&amp;#100;&amp;#064;&amp;#106;&amp;#097;&amp;#109;&amp;#101;&amp;#115;&amp;#100;&amp;#102;&amp;#108;&amp;#121;&amp;#110;&amp;#110;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;&amp;#106;&amp;#100;&amp;#064;&amp;#106;&amp;#097;&amp;#109;&amp;#101;&amp;#115;&amp;#100;&amp;#102;&amp;#108;&amp;#121;&amp;#110;&amp;#110;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&lt;/a&gt; and let me know
+your thoughts in the comments.  I’ll be adding new data types in the coming days and trying to find better ways to get the data
+to you.&lt;/p&gt;
+
+&lt;p&gt;If you like it, tell your friends.  If not, tell me!&lt;/p&gt;
+
+&lt;div id=&quot;formHolder&quot;&gt;
+  &lt;form id=&quot;selector&quot;&gt;
+    Select the type of markup you want to create:
+    &lt;select id=&quot;form-selector&quot; name=&quot;form-selector&quot;&gt;
+      &lt;option&gt;---&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/form&gt;
+
+  &lt;form id=&quot;person&quot; style=&quot;display:none;&quot;&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;@context&quot; value=&quot;http://www.schema.org&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;@type&quot; value=&quot;person&quot; /&gt;
+    &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;
+    &lt;input id=&quot;name&quot; name=&quot;name&quot; type=&quot;text&quot; data-path=&quot;name&quot; /&gt;
+    &lt;label for=&quot;jobTitle&quot;&gt;Job Title:&lt;/label&gt;
+    &lt;input id=&quot;jobTitle&quot; name=&quot;jobTitle&quot; type=&quot;text&quot; data-path=&quot;jobTitle&quot; /&gt;
+    &lt;label for=&quot;url&quot;&gt;URL:&lt;/label&gt;
+    &lt;input id=&quot;url&quot; name=&quot;url&quot; type=&quot;text&quot; data-path=&quot;url&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;address.@type&quot; value=&quot;PostalAddress&quot; /&gt;
+    &lt;label for=&quot;address&quot;&gt;Address:&lt;/label&gt;
+    &lt;input id=&quot;address&quot; name=&quot;address&quot; type=&quot;text&quot; data-path=&quot;address.streetAddress&quot; /&gt;
+    &lt;label for=&quot;po-box&quot;&gt;PO Box:&lt;/label&gt;
+    &lt;input id=&quot;po-box&quot; name=&quot;po-box&quot; type=&quot;text&quot; data-path=&quot;address.postOfficeBoxNumber&quot; /&gt;
+    &lt;label for=&quot;addressLocality&quot;&gt;City:&lt;/label&gt;
+    &lt;input id=&quot;addressLocality&quot; name=&quot;addressLocality&quot; type=&quot;text&quot; data-path=&quot;address.addressLocality&quot; /&gt;
+    &lt;label for=&quot;addressRegion&quot;&gt;State/Region:&lt;/label&gt;
+    &lt;input id=&quot;addressRegion&quot; name=&quot;addressRegion&quot; type=&quot;text&quot; data-path=&quot;address.addressRegion&quot; /&gt;
+    &lt;label for=&quot;postalCode&quot;&gt;Zip/Postal Code:&lt;/label&gt;
+    &lt;input id=&quot;postalCode&quot; name=&quot;postalCode&quot; type=&quot;text&quot; data-path=&quot;address.postalCode&quot; /&gt;
+    &lt;label for=&quot;addressCountry&quot;&gt;Country:&lt;/label&gt;
+    &lt;input id=&quot;addressCountry&quot; name=&quot;addressCountry&quot; type=&quot;text&quot; data-path=&quot;address.addressCountry&quot; /&gt;
+    &lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
+    &lt;input id=&quot;email&quot; name=&quot;email&quot; type=&quot;text&quot; data-path=&quot;email&quot; /&gt;
+    &lt;label for=&quot;telephone&quot;&gt;Telephone (please include country code, +1 for USA):&lt;/label&gt;
+    &lt;input id=&quot;telephone&quot; name=&quot;telephone&quot; type=&quot;text&quot; data-path=&quot;telephone&quot; /&gt;
+    &lt;label for=&quot;birthDate&quot;&gt;Birth Date (international format YYYY-MM-DD):&lt;/label&gt;
+    &lt;input id=&quot;birthDate&quot; name=&quot;birthDate&quot; type=&quot;text&quot; data-path=&quot;birthDate&quot; /&gt;
+  &lt;/form&gt;
+
+  &lt;form id=&quot;product&quot; style=&quot;display:none;&quot;&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;@context&quot; value=&quot;http://www.schema.org&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;@type&quot; value=&quot;product&quot; /&gt;
+    &lt;label for=&quot;brand&quot;&gt;Brand:&lt;/label&gt;
+    &lt;input id=&quot;brand&quot; name=&quot;brand&quot; type=&quot;text&quot; data-path=&quot;brand&quot; /&gt;
+    &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;
+    &lt;input id=&quot;name&quot; name=&quot;name&quot; type=&quot;text&quot; data-path=&quot;name&quot; /&gt;
+    &lt;label for=&quot;image&quot;&gt;Image (relative or absolute url):&lt;/label&gt;
+    &lt;input id=&quot;image&quot; name=&quot;image&quot; type=&quot;text&quot; data-path=&quot;image&quot; /&gt;
+    &lt;label for=&quot;desription&quot;&gt;Description:&lt;/label&gt;
+    &lt;textarea rows=&quot;5&quot; cols=&quot;50&quot; name=&quot;description&quot; data-path=&quot;description&quot;&gt;&lt;/textarea&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;aggregateRating.@type&quot; value=&quot;aggregateRating&quot; /&gt;
+    &lt;label for=&quot;rating&quot;&gt;Rating:&lt;/label&gt;
+    &lt;input id=&quot;rating&quot; name=&quot;rating&quot; type=&quot;text&quot; data-path=&quot;aggregateRating.ratingValue&quot; /&gt;
+    &lt;label for=&quot;reviews&quot;&gt;Based on how many reviews?&lt;/label&gt;
+    &lt;input id=&quot;reviews&quot; name=&quot;reviews&quot; type=&quot;text&quot; data-path=&quot;aggregateRating.reviewCount&quot; /&gt;
+  &lt;/form&gt;
+  &lt;form id=&quot;event&quot; style=&quot;display:none;&quot;&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;@context&quot; value=&quot;http://www.schema.org&quot; /&gt;
+    &lt;label for=&quot;eventType&quot;&gt;Select Event Type&lt;/label&gt;
+    &lt;select name=&quot;eventType&quot; type=&quot;select&quot; data-path=&quot;@type&quot;&gt;
+      &lt;option value=&quot;Event&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;BusinessEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;ChildrensEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;ComedyEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;DanceEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;EducationEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;Festival&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;FoodEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;LiteraryEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;MusicEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;SaleEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;SocialEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;SportsEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;TheaterEvent&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;UserInteraction&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;VisualArtsEvent&quot;&gt;&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;
+    &lt;input id=&quot;name&quot; name=&quot;name&quot; type=&quot;text&quot; data-path=&quot;name&quot; /&gt;
+    &lt;label for=&quot;url&quot;&gt;URL:&lt;/label&gt;
+    &lt;input id=&quot;url&quot; name=&quot;url&quot; type=&quot;text&quot; data-path=&quot;url&quot; /&gt;
+    &lt;label for=&quot;desription&quot;&gt;Description:&lt;/label&gt;
+    &lt;textarea rows=&quot;5&quot; cols=&quot;50&quot; name=&quot;description&quot; data-path=&quot;description&quot;&gt;&lt;/textarea&gt;
+    &lt;label for=&quot;startDate&quot;&gt;Start Date(mm/dd/yyyy hh:mm am/pm):&lt;/label&gt;
+    &lt;input id=&quot;startDate&quot; name=&quot;startDate&quot; type=&quot;datetime-local&quot; data-path=&quot;startDate&quot; class=&quot;start-date&quot; /&gt;
+    &lt;label for=&quot;endDate&quot;&gt;End Date(mm/dd/yyyy hh:mm am/pm):&lt;/label&gt;
+    &lt;input id=&quot;endDate&quot; name=&quot;endDate&quot; type=&quot;datetime-local&quot; data-path=&quot;endDate&quot; class=&quot;end-date&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;location.@type&quot; value=&quot;Place&quot; /&gt;
+    &lt;label for=&quot;location-name&quot;&gt;Venue Name:&lt;/label&gt;
+    &lt;input id=&quot;location-name&quot; name=&quot;location-name&quot; type=&quot;text&quot; data-path=&quot;location.name&quot; /&gt;
+    &lt;label for=&quot;location-url&quot;&gt;Venue URL:&lt;/label&gt;
+    &lt;input id=&quot;location-url&quot; name=&quot;location-url&quot; type=&quot;text&quot; data-path=&quot;location.sameAs&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;location.address.@type&quot; value=&quot;PostalAddress&quot; /&gt;
+    &lt;label for=&quot;address&quot;&gt;Address:&lt;/label&gt;
+    &lt;input id=&quot;address&quot; name=&quot;address&quot; type=&quot;text&quot; data-path=&quot;location.address.streetAddress&quot; /&gt;
+    &lt;label for=&quot;addressLocality&quot;&gt;City:&lt;/label&gt;
+    &lt;input id=&quot;addressLocality&quot; name=&quot;addressLocality&quot; type=&quot;text&quot; data-path=&quot;location.address.addressLocality&quot; /&gt;
+    &lt;label for=&quot;addressRegion&quot;&gt;State/Region:&lt;/label&gt;
+    &lt;input id=&quot;addressRegion&quot; name=&quot;addressRegion&quot; type=&quot;text&quot; data-path=&quot;location.address.addressRegion&quot; /&gt;
+    &lt;label for=&quot;postalCode&quot;&gt;Zip/Postal Code:&lt;/label&gt;
+    &lt;input id=&quot;postalCode&quot; name=&quot;postalCode&quot; type=&quot;text&quot; data-path=&quot;location.address.postalCode&quot; /&gt;
+    &lt;label for=&quot;addressCountry&quot;&gt;Country:&lt;/label&gt;
+    &lt;input id=&quot;addressCountry&quot; name=&quot;addressCountry&quot; type=&quot;text&quot; data-path=&quot;location.address.addressCountry&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;offers.@type&quot; value=&quot;Offer&quot; /&gt;
+    &lt;label for=&quot;offerDesc&quot;&gt;Offer Description:&lt;/label&gt;
+    &lt;input id=&quot;offerDesc&quot; name=&quot;offerDesc&quot; type=&quot;text&quot; data-path=&quot;offers.description&quot; /&gt;
+    &lt;label for=&quot;offerURL&quot;&gt;Offer URL:&lt;/label&gt;
+    &lt;input id=&quot;offerURL&quot; name=&quot;offerURL&quot; type=&quot;text&quot; data-path=&quot;offers.url&quot; /&gt;
+    &lt;label for=&quot;offerPrice&quot;&gt;Offer Price:&lt;/label&gt;
+    &lt;input id=&quot;offerPrice&quot; name=&quot;offerPrice&quot; type=&quot;text&quot; data-path=&quot;offers.price&quot; /&gt;
+  &lt;/form&gt;
+  &lt;form id=&quot;organization&quot; style=&quot;display:none;&quot;&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;@context&quot; value=&quot;http://www.schema.org&quot; /&gt;
+    &lt;label for=&quot;orgType&quot;&gt;Select Organization Type:&lt;/label&gt;
+    &lt;select name=&quot;orgType&quot; data-path=&quot;@type&quot;&gt;
+      &lt;option value=&quot;Organization&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;Corporation&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;EducationalOrganization&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;GovernmentOrganization&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;LocalBusiness&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;NGO&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;PerformingGroup&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;SportsTeam&quot;&gt;&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;
+    &lt;input id=&quot;name&quot; name=&quot;name&quot; type=&quot;text&quot; data-path=&quot;name&quot; /&gt;
+    &lt;label for=&quot;url&quot;&gt;URL:&lt;/label&gt;
+    &lt;input id=&quot;url&quot; name=&quot;url&quot; type=&quot;text&quot; data-path=&quot;url&quot; /&gt;
+    &lt;label for=&quot;desription&quot;&gt;Description:&lt;/label&gt;
+    &lt;textarea rows=&quot;5&quot; cols=&quot;50&quot; name=&quot;description&quot; data-path=&quot;description&quot;&gt;&lt;/textarea&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;address.@type&quot; value=&quot;PostalAddress&quot; /&gt;
+    &lt;label for=&quot;address&quot;&gt;Address:&lt;/label&gt;
+    &lt;input id=&quot;address&quot; name=&quot;address&quot; type=&quot;text&quot; data-path=&quot;address.streetAddress&quot; /&gt;
+    &lt;label for=&quot;po-box&quot;&gt;PO Box:&lt;/label&gt;
+    &lt;input id=&quot;po-box&quot; name=&quot;po-box&quot; type=&quot;text&quot; data-path=&quot;address.postOfficeBoxNumber&quot; /&gt;
+    &lt;label for=&quot;addressLocality&quot;&gt;City:&lt;/label&gt;
+    &lt;input id=&quot;addressLocality&quot; name=&quot;addressLocality&quot; type=&quot;text&quot; data-path=&quot;address.addressLocality&quot; /&gt;
+    &lt;label for=&quot;addressRegion&quot;&gt;State/Region:&lt;/label&gt;
+    &lt;input id=&quot;addressRegion&quot; name=&quot;addressRegion&quot; type=&quot;text&quot; data-path=&quot;address.addressRegion&quot; /&gt;
+    &lt;label for=&quot;postalCode&quot;&gt;Zip/Postal Code:&lt;/label&gt;
+    &lt;input id=&quot;postalCode&quot; name=&quot;postalCode&quot; type=&quot;text&quot; data-path=&quot;address.postalCode&quot; /&gt;
+    &lt;label for=&quot;addressCountry&quot;&gt;Country:&lt;/label&gt;
+    &lt;input id=&quot;addressCountry&quot; name=&quot;addressCountry&quot; type=&quot;text&quot; data-path=&quot;address.addressCountry&quot; /&gt;
+    &lt;label for=&quot;openingHours&quot;&gt;Open Hours (2 letter days and 24 hour time. Example: &quot;Mo, Tu, We, Th, Fr 10:00-18:00&quot; :&lt;/label&gt;
+    &lt;input id=&quot;openingHours&quot; name=&quot;openingHours&quot; type=&quot;text&quot; data-path=&quot;openingHours&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; data-path=&quot;contactPoint.@type&quot; value=&quot;ContactPoint&quot; /&gt;
+    &lt;label for=&quot;contactType&quot;&gt;Contact Type:&lt;/label&gt;
+    &lt;input id=&quot;contactType&quot; name=&quot;contactType&quot; type=&quot;text&quot; data-path=&quot;contactPoint.contactType&quot; /&gt;
+    &lt;label for=&quot;telephone&quot;&gt;Telephone:&lt;/label&gt;
+    &lt;input id=&quot;telephone&quot; name=&quot;telephone&quot; type=&quot;text&quot; data-path=&quot;contactPoint.telephone&quot; /&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;div class=&quot;output&quot;&gt;
+  &lt;textarea class=&quot;json&quot;&gt;
+
+  &lt;/textarea&gt;
+  &lt;div id=&quot;buttonHolder&quot;&gt;
+    &lt;button id=&quot;reset&quot;&gt;
+      Reset Form
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  $(function() {
+    //function to populate the form selector based
+    //on the forms that are available.
+
+    $(&#39;form&#39;).each(function() {
+      if ($(this).attr(&#39;id&#39;) != &#39;selector&#39;) {
+        var option = $(this).attr(&#39;id&#39;);
+        $(&#39;select#form-selector&#39;).append(&#39;&lt;option value=&quot;&#39; + option + &#39;&quot;&gt;&#39; + option.toUpperCase() + &#39;&lt;/option&gt;&#39;);
+      };
+    });
+    $(&#39;option&#39;).each(function() {
+      console.log($(this).html());
+      if (!$(this).html() || $(this).html() === &quot;&quot;) {
+        $(this).html($(this).val());
+      }
+    });
+    var selected;
+    var old;
+
+    //changes the displayed form based on the selection
+    $(&quot;#selector&quot;).change(function() {
+      old = selected;
+      selected = &quot;#&quot; + $(&quot;#selector option:selected&quot;).val();
+      if (old) {//closes the old form
+        $(old).slideToggle();
+      }
+      $(selected).slideToggle();
+      $(&quot;pre&quot;).html(&quot;&quot;);
+      // clears out the &lt;pre&gt; container for the next one
+      //cycles through the elements of the form and
+      //clears the value on change.
+      $(&#39;input,textarea&#39;).each(function() {
+        if ($(this).attr(&#39;type&#39;) != &#39;hidden&#39;) {
+          $(this).val(&quot;&quot;);
+        };
+      });
+      var element = {};
+      //instantiate the object
+
+      // fire when a key is pressed in an input or textarea
+      $(selected + &#39; input,&#39; + selected + &#39; textarea,&#39; + selected + &#39; select&#39;).keyup(function() {
+        // this iterates through the whole form.  @TODO see if there&#39;s a better way
+        element = {};
+        // this is highly inefficient, but it keeps things in order
+        $(selected + &#39; input,&#39; + selected + &#39; textarea,&#39; + selected + &#39; select&#39;).each(function() {
+          //selects the data-path attr and splits it if necessary.
+          //the first is checked to see if it&#39;s alreay the key
+          //and the second is used as the inner array
+          var path = $(this).data(&#39;path&#39;).split(&#39;.&#39;),
+              currentData =
+              element;
+          for (var i = 0; i &lt; path.length - 1; i++) {
+            if (!currentData[path[i]]) {
+              //if the first part of data-path doesn&#39;t exist then it becomes
+              //the key for this array
+              currentData[path[i]] = {};
+            }
+            //console.log(currentData[path[i]]);
+            currentData = currentData[path[i]];
+          }
+          //if it&#39;s empty, then it doesn&#39;t exist
+          currentData[path[path.length - 1]] = ($(this).val().length &gt; 0 ? $(this).val() : null);
+          if (currentData[path[path.length - 1]] === null) {
+            //get rid of the data that doesn&#39;t exist
+            delete currentData[path[path.length - 1]];
+          }
+          //prep it for output
+          $(&quot;.json&quot;).val(JSON.stringify(element, null, 2));
+        });
+      });
+    });
+
+    //this function clears the &lt;pre&gt; and all fields
+    $(&quot;#reset&quot;).click(function() {
+      $(&quot;pre&quot;).html(&quot;&quot;);
+      $(&#39;input,textarea,select&#39;).each(function() {
+        if ($(this).attr(&#39;type&#39;) != &#39;hidden&#39;) {
+          $(this).val(&quot;&quot;);
+        }
+      });
+    });
+  });
+&lt;/script&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/json-ld-markup-generator/&quot;&gt;JSON-LD Markup Generator&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 22, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[The Unbelieveable Beauty of JSON-LD]]></title>
+  <link rel="alternate" type="text/html" href="http://blog.local/development/beauty-json-ld/" />
+  <id>http://blog.local/development/beauty-json-ld</id>
+  <published>2015-03-16T06:11:26-05:00</published>
+  <updated>2015-03-16T06:11:26-05:00</updated>
+  <author>
+    <name>J.D. Flynn</name>
+    <uri>http://blog.local</uri>
+    <email>jd@jamesdflynn.com</email>
+  </author>
+  <content type="html">
+    &lt;h2 id=&quot;semantics&quot;&gt;SEMANTICS!&lt;/h2&gt;
+
+&lt;p&gt;Before the release of HTML5, the classic &lt;code&gt;&amp;lt;div class=&quot;article&quot;&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;div class=&quot;nav&quot;&amp;gt;&lt;/code&gt;, or any number of classes or IDs that the
+search engines had to sift through made it difficult for them to decypher just what content belonged to which part of the page.  Sure
+the algorithm eventually got close, but HTML5 put it right on the spot.  If you want to tell the engines what section was the nav bar, you
+wrap it in &lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt; tags.  The main article content?  &lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt; tags.  Guess what an aside goes in… got your guess?&lt;/p&gt;
+
+&lt;p&gt;If you guessed &lt;code&gt;&amp;lt;aside&amp;gt;&lt;/code&gt; give yourself a cookie!&lt;/p&gt;
+
+&lt;p&gt;The engines now have something to directly tell them “The content in here is the article.  This content is a sidebar.”  There are
+sections, addresses, figures, main areas, and a ton more.  This made SEO a bit easier by helping the engines know just what content
+went where and how it related to the rest of the page.  The full &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&quot;&gt;list of HTML tags&lt;/a&gt;
+is available on &lt;a href=&quot;https://developer.mozilla.org&quot;&gt;Mozilla Developer Network&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The engines were happy that they knew what was what and the world was a better place, however it wasn’t enough.  The engines
+were hungry for more input.&lt;/p&gt;
+&lt;figure style=&quot;text-align: center;&quot;&gt;
+  &lt;img id=&quot;dog&quot; src=&quot;/images/moar_input.jpg&quot; alt=&quot;Johnny 5 needs to eat too&quot; style=&quot;height: 400px; width: auto;&quot; /&gt;
+  &lt;figcaption&gt;Need more input!&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Along comes &lt;a href=&quot;http://www.schema.org&quot;&gt;schema.org&lt;/a&gt; with their markup.  If someone was named on a page they could use&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://schema.org/Person&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://www.jamesdflynn.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;J.D. Flynn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;jobtitle&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    Web Developer, SEO student, All-around nice guy
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;and define themselves, along with a number of other entity types as defined on &lt;a href=&quot;http://www.schema.org&quot;&gt;schema.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Google adopted this and started adding schema markup to their knowledge graph, which gave them a new way to link stuff together.  Now
+the author of an article or a product on a page could be pulled from the html, added to the knowledge graph, and be found easier, but look
+at that markup.  doesn’t it seem a little clunky?  Maybe there’s a better way to do it?&lt;/p&gt;
+
+&lt;h2 id=&quot;json-to-the-rescue&quot;&gt;JSON to the Rescue!&lt;/h2&gt;
+
+&lt;p&gt;JSON-LD or JavaScript Object Notation - Linked Data is much easier to read and use than regular markup.  Take the example from above:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://schema.org/Person&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;https://www.jamesdflynn.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;J.D. Flynn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;jobtitle&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    Web Developer, SEO student, All-around nice guy
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;with JSON-LD it can be written as:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;application/ld+json&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;@context&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;http://schema.org&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;@type&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Person&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;J.D. Flynn&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;jobTitle&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Web Developer, SEO student, All-around nice guy&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://www.jamesdflynn.com&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now take a look at that.  It’s cleaner, easier to read, much less clunky, and can be placed in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section of your page
+independant of the content.  Go ahead and try it out at &lt;a href=&quot;https://developers.google.com/structured-data/testing-tool/&quot;&gt;Google Structured Data Testing Tool&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now what are the advantages of one over the other?  To me, one of the biggest advantages is mobility.  I can paste the JSON-LD script
+almost anywhere in my page and Google will parse it and use it as intended where the microdata is specific and needs to be exactly where the data is.
+There’s also the usability.  To me, writing div after div after div can get tedious.  JSON-LD is human-readable and easy to tell exactly what
+goes where.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-wait-theres-more&quot;&gt;But Wait, There’s More!&lt;/h2&gt;
+
+&lt;p&gt;It’s not just for people or businesses!  JSON-LD and structured data can be used in emails as well with dates and locations of events,
+product information, and app integration.  Why does this matter?  Because it matters to Google.&lt;/p&gt;
+
+&lt;p&gt;For those of you with Android phones, you may have noticed that Google seems to know you better than you know yourself.  You get reminders
+of concert tickets, you get flight status updates, you click on a song and it asks you whether you want to open it on Youtube or your browser.
+These are all the result of structured data being pulled and used by Android to make your life easier.&lt;/p&gt;
+
+&lt;p&gt;As a web developer, I find this amazing and a little intimidating.  As an SEO beginner, it’s exciting.  On my “test” site that I’m attempting to
+optimize, I wrote up some JSON-LD and instructed the client to put it on his site.  Now, even though he’s not ranking (yet) he is showing
+up on the right side of the SERP when searched for directly thanks to a little semantic markup and JSON-LD.&lt;/p&gt;
+
+&lt;p&gt;So are you using semantic markup or JSON-LD in your projects, and what difference has it made?  Let me know in the comments.&lt;/p&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/beauty-json-ld/&quot;&gt;The Unbelieveable Beauty of JSON-LD&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 16, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[How Do You Deal with SEO Information Overload?]]></title>
+  <link rel="alternate" type="text/html" href="http://blog.local/development/seo-information-overload/" />
+  <id>http://blog.local/development/seo-information-overload</id>
+  <published>2015-03-11T16:50:16-05:00</published>
+  <updated>2015-03-11T16:50:16-05:00</updated>
+  <author>
+    <name>J.D. Flynn</name>
+    <uri>http://blog.local</uri>
+    <email>jd@jamesdflynn.com</email>
+  </author>
+  <content type="html">
+    &lt;h2 id=&quot;so-much-information&quot;&gt;So Much Information!&lt;/h2&gt;
+
+&lt;p&gt;Working with the web in general is extremely easy to get into.  There are a ton of resources available for almost any aspect
+that one might want to get into.  If you want to get into web development then you can learn how to code HTML from any number
+of sources.  The same goes for JavaScript, CSS, PHP, or a multitude of other languages, frameworks, or libraries.  The resources
+to learn web development are out there and it really isn’t too difficult to get started in.  If it was then there wouldn’t be
+billions of websites out there.  However, it may be difficult to sort the wheat from the chaff.  For example, a simple search
+of “learn to build a website” has almost a half billion results on its own.  Fortunately, the first listing on my version of the SERP
+is &lt;a href=&quot;http://www.codeacademy.com&quot;&gt;Codeacademy&lt;/a&gt; which is pretty reputable and helped me along in my adventures in web development.&lt;/p&gt;
+
+&lt;p&gt;When I increased the specificity of my search, I got nearly as many results.  CSS, JavaScript, PHP, everyting I searched for
+yielded the same results.  A ton of responses on the SERP with no guidance to go on.  Should I go for a personal blog, a question/answer
+forum, another online training course, paid, free, there are &lt;strong&gt;SO MANY CHOICES!&lt;/strong&gt;  Where does one begin?  And after beginning, how does
+one keep up with ever changing standards?  You can imagine how overwhelming it was to jump into a field that is never stagnant.&lt;/p&gt;
+
+&lt;p&gt;It turns out that SEO is even more frightening.  Where web development standards or versions change every few months or weeks,
+I learned at SMX that the Google Algorithm changes around 800 times a year.  That’s roughly every 8 hours.  From the time I wake up
+to the time I go to bed, Google has changed its mind up to 3 times.  That’s freaking &lt;strong&gt;crazy&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;figure style=&quot;text-align: center;&quot;&gt;
+  &lt;img id=&quot;dog&quot; src=&quot;/images/meme_dog.jpg&quot; alt=&quot;I am really clueless, just like this dog&quot; style=&quot;height: 400px; width: auto;&quot; /&gt;
+  &lt;figcaption&gt;I wish I had it together as this dog!&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;sifting-through-the-haystack-for-the-golden-needle&quot;&gt;Sifting Through the Haystack for the Golden Needle&lt;/h2&gt;
+
+&lt;p&gt;As I’ve said before, I am &lt;strong&gt;EXTREMELY&lt;/strong&gt; fortunate to have met who I have met and to be able to call them friends,
+including several members of the &lt;a href=&quot;https://gotbusinessquestions.org/seo-experts/?hvid=1W8uJ8&quot;&gt;elite SEO 100&lt;/a&gt;.  By itself,
+that is worth more than anything I could learn on my own.  Since I became interested in SEO and how it can work with
+web development, all those days ago, I’ve followed a ton of brilliant people on Twitter and networked on LinkedIn, but
+140 characters at a time can only teach so much.  So how does anyone get started?&lt;/p&gt;
+
+&lt;p&gt;Writers write.  Musicians make music.  Developers develop.  SEOs optimize for search engines.  I’ve learned that the best way
+to start is to just start.  There are several blogs that are phenominal, and there are even more that are horrible.  My personal
+suggestions are to latch on to Moz, Search Engine Land, and Search Engine Journal.  Also, check out that list from above and follow
+every single person on it.  Read their tweets and follow their links.  There’s a lot to cover, trust me.  I have a 2 hour commute
+each way and it’s still not nearly enough time to get caught up on everything that gets posted.&lt;/p&gt;
+
+&lt;h2 id=&quot;reach-out&quot;&gt;Reach Out&lt;/h2&gt;
+
+&lt;p&gt;One of the many things that the SEO and web development communities have in common is their willingness to share.  If I write
+an awesome function or a bit of code that I think people can benefit from, I upload it to Github and share it with the world.
+If an SEO finds out something interesting about the algorithm or Penguin, Pigeon, or Panda, they write about it and they tell people
+about it so that they may benefit from it.&lt;/p&gt;
+
+&lt;p&gt;As I was told at SMX by one of my new contacts, “Even though [SEOs] are in competition, we’re not against each other.  If anything,
+we’re all in it against the search engines.”&lt;/p&gt;
+
+&lt;p&gt;What about you?  How do you decide what advice is worth taking and what advice should go in one ear and right out the other?
+Let me know, I’m dying to learn!&lt;/p&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/seo-information-overload/&quot;&gt;How Do You Deal with SEO Information Overload?&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 11, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[The Steep Learning Curve of SEO]]></title>
+  <link rel="alternate" type="text/html" href="http://blog.local/development/seo-learning-curve/" />
+  <id>http://blog.local/development/seo-learning-curve</id>
+  <published>2015-03-09T17:17:12-05:00</published>
+  <updated>2015-03-09T17:17:12-05:00</updated>
+  <author>
+    <name>J.D. Flynn</name>
+    <uri>http://blog.local</uri>
+    <email>jd@jamesdflynn.com</email>
+  </author>
+  <content type="html">
+    &lt;h2 id=&quot;where-to-start&quot;&gt;Where to Start?&lt;/h2&gt;
+
+&lt;p&gt;If you read my last &lt;a href=&quot;/development/developer-search-engine-den/&quot;&gt;post on web development&lt;/a&gt; then you’d know that I am an SEO convert and
+wanting to learn everything that I can about it, but like most things worth learning, there are literally thousands
+of places that I could start.  So where do I start?  Should I read the copy of SEO for Dummies that came with the workshop I went to,
+or should I just read every blog on Moz or Search Engine Land, should I try to emulate everything I saw at Search Marketing
+Expo.  What’s the best method?&lt;/p&gt;
+
+&lt;p&gt;I’m sure that this is one of those questions that has no right answer.  If I asked 5 people I would probably get 25 answers, and
+that’s alright.  There’s more than one way to do SEO and there are many places to start.  I’ve decided to start by just jumping into
+it.  I have 2 pages that I’m going to be working with, including this one.  I’ve set up Google Analytics accounts on all both and I’m
+generating reports for a baseline to see if what I am doing is having any effect.  I have also decided to to try learning SEO by
+using several methods including link building, keyword optimization, and schema markup where appropriate.&lt;/p&gt;
+
+&lt;h2 id=&quot;madness-to-my-method&quot;&gt;Madness to My Method&lt;/h2&gt;
+
+&lt;p&gt;So my new, personal site is going to be a sort of sandbox for learning SEO.  This is where I can play with different tactics and strategies
+as well as seeing how rankings fluctuate based on content, links, and other factors.  I’ve also taken on an SEO client, although
+they are kind of an experiment as well.  My goal is to follow the Hippocratic Oath and first do no harm or more simply put, not be evil.&lt;/p&gt;
+
+&lt;p&gt;Thus far I’ve combed through his code (developer powers activate!) and found a few things that could be improved.  For starters,
+he didn’t have a sitemap which was my most immediate concern.  Secondly, the &lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt; tags weren’t nearly as descriptive as they could
+be.  Third, there was no &lt;code&gt;&amp;lt;meta type=&#39;keyword&#39;&amp;gt;&lt;/code&gt; tag which, in my opinion, is much better than having the tag full of random keywords
+that will rank for a short while, but ultimately result in some bad search engine ju ju.&lt;/p&gt;
+
+&lt;p&gt;Luckily, he has a lot of good things going for him.  His site is already mobile optimized.  Just an FYI, if your site isn’t mobile
+freindly, you have until 4/21 to get on board or suffer the wrath of Google (&lt;a href=&quot;http://www.firstscribe.com/blog/nine-things-need-know-googles-mobile-friendly-deadline/&quot;&gt;the mobile friendly deadline is looming&lt;/a&gt;)
+He’s also already setup with SSL or HTTPS which, as I learned at Search Marketing Expo, is going to become very important in the
+near future.  The UI/UX seems pretty solid as well.&lt;/p&gt;
+
+&lt;p&gt;I offered the following suggestions to him to improve:  Make sure the title tags reflect the content and contain keywords, submit that sitemap
+and make sure it has the &lt;code&gt;https://&lt;/code&gt; version of the addresses on there, get a Google My Business map on the page in place of the
+regular Google map, and insert some structured data.  I even wrote up the markup because it involves code and I love coding.&lt;/p&gt;
+
+&lt;p&gt;A sanitized version of the markup looks like&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;application/ld+json&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;@context&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;http://schema.org&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;@type&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;LocalBusiness&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;address&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;@type&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;PostalAddress&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;addressLocality&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;City&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;addressRegion&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;IN&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;streetAddress&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1313 Mockingbird Ln&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;openingHours&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Mo, Tu, We, Th, Fr 10:00-18:00&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Computer repair, networking services, and internet hosting serving 46350, 46360, 46304, and surrounding areas.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Business Name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;telephone&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;(219) 555-1234&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;now-i-play-the-waiting-game&quot;&gt;Now I Play the Waiting Game&lt;/h2&gt;
+
+&lt;p&gt;So how am I doing?  That’s one of the things that I’ve come to realize while learning SEO.  The results worth getting seem to not happen quickly.
+On an old site I used to run, I fell for some black-hat SEO tactics that taught me a quick lesson.  Just a heads up, if your site
+is hosted on a server that uses cPanel and you see that “SEO Tools” section just calling out for you to click it, be careful.  I
+spent a significant amount of money on one of those $99/month companies that guaranteed more links, more mentions, more traffic, and
+more business.  How could I go wrong?&lt;/p&gt;
+
+&lt;p&gt;Very easily, actually.  I suddenly had 1000s of links pointing to me and hundreds of “blog posts” mentioning my site by title, but
+they were hard to read and the links were coming from less-than-reputable sources.  For the first week, I was getting page views from
+around the globe and my ranking was up for all of the keywords I chose, but, like Icarus, I flew too high and fell hard.  Google caught on
+to what the experts had done and I was all but blacklisted.  My ranking went down and my visits all but disappeared.  Let me be an example
+for you.  If someone tells you that they can get you to Page 1, Rank 1 for $99/month but they won’t tell you how or they won’t talk to
+you in with their voice as opposed to strictly email, run away as fast as you can.  Sure, you might see a temporary boost, but in the long
+run you’ll wish you hadn’t.&lt;/p&gt;
+
+&lt;h2 id=&quot;questions-for-you&quot;&gt;Questions for You&lt;/h2&gt;
+
+&lt;p&gt;So, now that I’ve started my transition over into the world of SEO, do you have any advice for me?  Am I on the right track as far as
+trying to boost the sites I’m working on or have I completely borked them up?  Since I’m still in the infancy of learning SEO, I am
+100% open to suggestion.&lt;/p&gt;
+
+&lt;p&gt;Leave your thoughts in the comments or please, feel free to email me or connect with me whichever way works best for you.&lt;/p&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/seo-learning-curve/&quot;&gt;The Steep Learning Curve of SEO&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 09, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[A Developer in the SEOs Den]]></title>
+  <link rel="alternate" type="text/html" href="http://blog.local/development/developer-search-engine-den/" />
+  <id>http://blog.local/development/developer-search-engine-den</id>
+  <published>2015-03-06T19:29:39-06:00</published>
+  <updated>2015-03-06T19:29:39-06:00</updated>
+  <author>
+    <name>J.D. Flynn</name>
+    <uri>http://blog.local</uri>
+    <email>jd@jamesdflynn.com</email>
+  </author>
+  <content type="html">
+    &lt;h2 id=&quot;developers-versus-seos&quot;&gt;Developers versus SEOs&lt;/h2&gt;
+
+&lt;p&gt;There is a large mentality that search engine optimization and website development are mutually
+exclusive.  I also had this mentality until about 4 months ago when I was assigned to going through a
+poorly produced spreadsheet full of tips and suggestions from an SEO company that I will not name
+for the sake of not angering anyone, but let me strongly recommend that if you are an SEO and you’re
+producing a spreadsheet report for you client, please take out the columns that mention “Suggest product
+ X to client, we get a kickback.”  That’s a tip you can have for free.&lt;/p&gt;
+
+&lt;p&gt;Before this I had never really paid much attention to SEO and I was in the same school of thought that
+most developers were in that mainly consisted of assuming that SEOs were nothing but prognosticators who gave
+little helpful information.  After my experience with the company that gave us the ad based spreadsheet, I was
+certain that the crystal ball method of SEO was the case.  I suggested to my boss that maybe we start baking the SEO
+into the code of the sites, because there’s no way it could be that hard.&lt;/p&gt;
+
+&lt;p&gt;It turned out that I was just dealing with an incopmpetent SEO company who had only the significant amount of money
+we were paying them in mind as opposed to giving advice we could use or even better, tell us that we’re doing
+a good job.  I’d rather hear that there were minimal changes to be made than have stuff made up and placed in
+a very poorly designed presentation with poor communication afterwards.  This helped to cement my web developer
+mentality that SEOs were nothing but prognositcators who preyed on websites with money.&lt;/p&gt;
+
+&lt;p&gt;This past week I attended a &lt;strong&gt;HUGE&lt;/strong&gt; conference and training for search engine marketing and
+search engine optimization that was kicked off by a workshop by Bruce Clay (&lt;a href=&quot;https://www.twitter.com/bruceclayinc&quot;&gt;@BruceClayInc&lt;/a&gt;)
+and from the beginning of the presentation I was convinced that I was wrong.  There was an unbelieveable amount of work,
+research, and study put into every aspect of cracking the infamous Google Algorithm and keeping
+clients’ sites towards the top of the Search Engine Results Page (SERP) that I would have never imagined.
+What was originally an excuse to go to California for a week suddenly became unbelieveably exciting to me.
+I wanted to know more.&lt;/p&gt;
+
+&lt;h2 id=&quot;donuts-and-the-art-of-networking&quot;&gt;Donuts and the Art of Networking&lt;/h2&gt;
+
+&lt;p&gt;Fortune smiled upon me in the form of a single tweet.&lt;/p&gt;
+&lt;div class=&quot;embed twitter&quot;&gt;&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;hey &lt;a href=&quot;https://twitter.com/hashtag/smx?src=hash&quot;&gt;#smx&lt;/a&gt; - wanna have your mind blown by the best donuts EVER? Meet in the Mariott lobby at 8am, we&amp;#39;ll head over to &lt;a href=&quot;https://twitter.com/psychodonuts&quot;&gt;@psychodonuts&lt;/a&gt;&lt;/p&gt;&amp;mdash; Greg Gifford (@GregGifford) &lt;a href=&quot;https://twitter.com/GregGifford/status/572602658692853760&quot;&gt;March 3, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/div&gt;
+
+&lt;p&gt;As a lover of donuts, and since I had already planned on going to Psycho Donuts, I decided to join Greg and whoever
+else was going with in the donut caravan, and my week got a lot more interesting.  At the time I did not realize
+that I was going to be enjoying breakfast with some of the speakers of Search Marketing Expo, but a few seconds into
+my S’moreo Donut (freaking delicious!) I made the connection and latched on to Greg and Grant Tilus
+(&lt;a href=&quot;https://www.twitter.com/granttilus&quot;&gt;@granttilus&lt;/a&gt;) like a lamprey.&lt;/p&gt;
+
+&lt;p&gt;By following them around, connecting to their connections, and observing conversations, I learned more
+than I thought possible, and probably got more out of the conference than most people just by responding to a single tweet.
+I managed to get invited to an event by Point It Digital Marketing (&lt;a href=&quot;https://www.twitter.com/point_it&quot;&gt;@point_it&lt;/a&gt;), followed by
+Janes of Digital presented by Bing Ads (&lt;a href=&quot;https://www.twitter.com/bingads&quot;&gt;@bingads&lt;/a&gt;) and some wonderful dinners
+with some of the greatest minds at Search Marketing Expo including, but not limited to Steve Hammer
+(&lt;a href=&quot;http://www.twitter.com/armondhammer&quot;&gt;@armondhammer&lt;/a&gt;), Jenny Halasz (&lt;a href=&quot;http://www.twitter.com/jennyhalasz&quot;&gt;@jennyhalasz&lt;/a&gt;),
+John Lee (&lt;a href=&quot;http://www.twitter.com/john_a_lee&quot;&gt;@john_a_lee&lt;/a&gt;), Mark Traphagen (&lt;a href=&quot;http://www.twitter.com/marktraphagen&quot;&gt;@marktraphagen&lt;/a&gt;),
+Brett Snyder (&lt;a href=&quot;http://www.twitter.com/brettasnyder&quot;&gt;@brettasnyder&lt;/a&gt;), and Larry Kim (&lt;a href=&quot;http://www.twitter.com/larrykim&quot;&gt;@larrykim&lt;/a&gt;).  The strange thing was that in the
+several hundred people that attended Search Marketing Expo West, I was one of probably less than 10 developers, or at
+least people whose title is “Web Developer” and that led me to get some pretty interesting question, the most common being,
+“Why are you here?”&lt;/p&gt;
+
+&lt;h2 id=&quot;bridging-the-gap&quot;&gt;Bridging the Gap&lt;/h2&gt;
+
+&lt;p&gt;Why was I there?  For starters, to go to California in the middle of a cold Chicago winter, but more importantly, I was originally
+there to prove that SEO was all smoke and mirrors.  With my opinion having done a complete turn around, I was now there to learn
+if it was possible to bridge the gap between development and SEO, preferably by injecting SEO into the development process, and I
+was met with praise of the highest order.&lt;/p&gt;
+
+&lt;p&gt;“Finally!” many SEOs would exclaim.  “It’s usually a nightmare to get the developers to do anything we ask them to do.”  They
+gave me some examples and told me how developers would quote them at days, if not weeks, to complete a simple request that,
+as a developer and even without knowing the system that they were using, I could quote a matter of hours.  If it really
+did take the dev team that long, then I’m either a phenominal developer, or their teams are either a) Lazy or b) Unskilled.
+To be honest, it could be either of those since I know I’m not a phenominal developer.&lt;/p&gt;
+
+&lt;p&gt;Now that I know SEO and web development can go hand in hand, I am going to do what I can to use best SEO practices in every
+bit of code that I write and learn as much as I can about becoming a quality SEO in the process, and maybe, just maybe, branch out into
+the wild, wild world of search engine optimization.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EDIT:&lt;/strong&gt; Updated to include Twitter handles of everyone mentioned.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/developer-search-engine-den/&quot;&gt;A Developer in the SEOs Den&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 06, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[The First One About Web Development]]></title>
+  <link rel="alternate" type="text/html" href="http://blog.local/development/first-post-web-development/" />
+  <id>http://blog.local/development/first-post-web-development</id>
+  <published>2015-03-05T17:26:11-06:00</published>
+  <updated>2015-03-05T17:26:11-06:00</updated>
+  <author>
+    <name>J.D. Flynn</name>
+    <uri>http://blog.local</uri>
+    <email>jd@jamesdflynn.com</email>
+  </author>
+  <content type="html">
+    &lt;h2 id=&quot;everyones-got-to-start-somewhere&quot;&gt;Everyone’s Got to Start Somewhere&lt;/h2&gt;
+
+&lt;p&gt;I’ve had a pretty minimal web presence for quite a while, but I’ve come to the conclusion that it’s definitely
+time to change that.  I’ve been doing website and web application development for quite a while, but I don’t have
+anything really personal to show for it aside from a few snippets of code and some sites where the client couldn’t
+tell &lt;strong&gt;“development”&lt;/strong&gt; from &lt;strong&gt;“design”&lt;/strong&gt; and therefore look like a developer designed them.  If there is anything that
+is going to show that I know what I’m doing and that I’m not all talk, it’s going to be showing off that I know
+what I am doing and that I’m not all talk.&lt;/p&gt;
+
+&lt;p&gt;A tip for budding website developers, or even talented ones who just can’t seem to break into it professionally, one
+of the first questions you will get asked in an interview is &lt;em&gt;“What’s your website or blog or portfolio?”&lt;/em&gt;  To which the correct
+response is not “I don’t have one.”  It took me a very long time to figure that out before I put a project on GitHub and made
+it available to potential employers to check out and see that I really can code.&lt;/p&gt;
+
+&lt;p&gt;To me, though, having a project on &lt;a href=&quot;http://www.github.com&quot;&gt;GitHub&lt;/a&gt; just wasn’t enough.  That, and the the fact that my
+main repo was a project that never saw the light of day due to a dispute with a client, pushed me to write a blog that focuses
+on website development and my journey from mediocre web developer to, hopefully someday, a talented and respected developer.&lt;/p&gt;
+
+&lt;h2 id=&quot;web-development-goals&quot;&gt;Web Development Goals&lt;/h2&gt;
+
+&lt;p&gt;I’ve been doing html since styling was completely inline and everything just ended up centered on the page
+or as part of an image map, but what I hadn’t been doing for most of that time was improving on skills.  Sure
+I could manage to make a web page in html, but it looked like crap, had no functionality and wasn’t worth the
+bytes it was taking up.  I went back to school after a tenure as a paramedic – a story for another post – and found
+out how the world of development had changed around me.  I knew that web sites were getting bigger, faster, stronger, different,
+and and other buzzwords, but what I didn’t know was just how much the world had changed around me.&lt;/p&gt;
+
+&lt;p&gt;Where JavaScript was once a toy that had to be strictly enabled, it was now a cornerstone of front-end web development, also,
+there was front-end web development. CGI-BIN was replaced by dynamic database driven sites using PHP or Ruby or ASP.net (&lt;em&gt;blech&lt;/em&gt;).
+The first few chapters in my website development textbook focused on the basics of CSS and the semantic markup of HTML5.&lt;/p&gt;
+
+&lt;p&gt;I was behind farther than I like to admit, but then something amazing happened.&lt;/p&gt;
+
+&lt;p&gt;I started doing it again and what I transitioned into what I was learning and the more I did of it, the more I loved it.  Then
+came the web applications programming class that taught me the basics of PHP, and I loved it.  I bought every book I could find, followed
+every tutorial I came across, and just absorbed as much as I could.&lt;/p&gt;
+
+&lt;p&gt;Fast forward a few years, and here I am, a web developer in downtown Chicago loving where my life has taken me and where I’ve ended
+up so far, but I am ambitious and I want more.  I don’t want to be the junior developer, nor do I want to just do good enough.
+I really want to be the best.  Although Gladwell says it takes 10,000 hours to become an expert, I think it’s much less if the
+drive is high enough and the passion is there.&lt;/p&gt;
+
+&lt;p&gt;So since my first&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;to the last jQuery function I wrote, I’ve enjoyed every challenge that I’ve come up against and look forward to
+sharing some of my acquired skills with anyone willing to listen.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/first-post-web-development/&quot;&gt;The First One About Web Development&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 05, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+</feed>

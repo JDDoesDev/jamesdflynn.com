@@ -1,0 +1,359 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>The Steep Learning Curve of SEO &#8211; J.D. Flynn and the Adventures in Web Development</title>
+<meta name="description" content="If you read my last post on web development then you'd know that I am an SEO convert and wanting to learn everything that I can about it, but like most things worth learning, there are literally thousands of places that I could start.  So where do I start?  Should I read the copy of SEO for Dummies that came with the workshop I went to, or should I just read every blog on Moz or Search Engine Land, should I try to emulate everything I saw at Search Marketing">
+<meta name="keywords" content="learning seo, website development, search engine, schema markup">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="The Steep Learning Curve of SEO">
+<meta name="twitter:description" content="If you read my last post on web development then you'd know that I am an SEO convert and wanting to learn everything that I can about it, but like most things worth learning, there are literally thousands of places that I could start.  So where do I start?  Should I read the copy of SEO for Dummies that came with the workshop I went to, or should I just read every blog on Moz or Search Engine Land, should I try to emulate everything I saw at Search Marketing">
+<meta name="twitter:site" content="@JDDoesDev">
+<meta name="twitter:creator" content="@JDDoesDev">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.local/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Steep Learning Curve of SEO">
+<meta property="og:description" content="If you read my last post on web development then you'd know that I am an SEO convert and wanting to learn everything that I can about it, but like most things worth learning, there are literally thousands of places that I could start.  So where do I start?  Should I read the copy of SEO for Dummies that came with the workshop I went to, or should I just read every blog on Moz or Search Engine Land, should I try to emulate everything I saw at Search Marketing">
+<meta property="og:url" content="http://blog.local/development/seo-learning-curve/">
+<meta property="og:site_name" content="J.D. Flynn and the Adventures in Web Development">
+
+<!-- Webmaster Tools verfication -->
+<meta name="google-site-verification" content="byemwVOh8JIg3XatAJz2TwH16xSHbOLLKl47oQTTLZE">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60490227-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+
+<link rel="canonical" href="http://blog.local/development/seo-learning-curve/">
+<link href="http://blog.local/feed.xml" type="application/atom+xml" rel="alternate" title="J.D. Flynn and the Adventures in Web Development Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://blog.local/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://blog.local/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://blog.local/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://blog.local/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+<script type="application/ld+json">
+{ "@context" : "http://schema.org",
+  "@type" : "Person",
+  "name" : "J.D. Flynn",
+  "jobTitle" : "Web Developer, Blogger, SEO Enthusiast",
+  "url" : "https://www.jamesdflynn.com",
+  "sameAs" : [ "http://www.linkedin.com/in/jflynn8",
+      "http://www.twitter.com/JDDoesDev",
+      "http://www.github.com/jflynnSMG"],
+  "description" : "J.D. Flynn is a web developer with a newfound passion for SEO and learning every aspect of it that he can.  He can be found on Twitter, LinkedIn, Github, or on his blog jamesdflynn.com"
+}
+</script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://blog.local/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://blog.local/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://blog.local/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://blog.local/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://blog.local/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://blog.local/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://blog.local/">J.D. Flynn and the Adventures in Web Development</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				        
+				    
+				    <li><a href="http://blog.local/" >Home</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="http://blog.local/posts/" >Blog Posts and Musings</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="http://blog.local/json-ld-schema-generator/" >JSON-LD Generator</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="http://blog.local/about/" >About J.D. Flynn</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+<div>
+
+
+	<img src="http://blog.local/images/profile.png" class="bio-photo" alt="J.D. Flynn bio photo">
+
+
+  <h3>J.D. Flynn</h3>
+  <p>Drupal developer by trade, geek by choice, getting stuff done in the Chicagoland area.</p>
+  <a href="mailto:jd@jamesdflynn.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>
+  <a href="http://twitter.com/JDDoesDev" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+  
+  
+  <a href="http://linkedin.com/in/jflynn8" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+  
+  
+  <a href="http://github.com/JDDoesDev" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a href="http://paypal.me/JDDoesDev" class="author-social" target="_blank"><i class="fa fa-fw fa-paypal"></i> Donate via Paypal</a>
+</div>
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="http://blog.local/development/seo-learning-curve/" rel="bookmark" title="The Steep Learning Curve of SEO">The Steep Learning Curve of SEO</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Banner Responsive -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9258516687573779"
+         data-ad-slot="5518211737"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="article-wrap">
+      <h2 id="where-to-start">Where to Start?</h2>
+
+<p>If you read my last <a href="/development/developer-search-engine-den/">post on web development</a> then you’d know that I am an SEO convert and
+wanting to learn everything that I can about it, but like most things worth learning, there are literally thousands
+of places that I could start.  So where do I start?  Should I read the copy of SEO for Dummies that came with the workshop I went to,
+or should I just read every blog on Moz or Search Engine Land, should I try to emulate everything I saw at Search Marketing
+Expo.  What’s the best method?</p>
+
+<p>I’m sure that this is one of those questions that has no right answer.  If I asked 5 people I would probably get 25 answers, and
+that’s alright.  There’s more than one way to do SEO and there are many places to start.  I’ve decided to start by just jumping into
+it.  I have 2 pages that I’m going to be working with, including this one.  I’ve set up Google Analytics accounts on all both and I’m
+generating reports for a baseline to see if what I am doing is having any effect.  I have also decided to to try learning SEO by
+using several methods including link building, keyword optimization, and schema markup where appropriate.</p>
+
+<h2 id="madness-to-my-method">Madness to My Method</h2>
+
+<p>So my new, personal site is going to be a sort of sandbox for learning SEO.  This is where I can play with different tactics and strategies
+as well as seeing how rankings fluctuate based on content, links, and other factors.  I’ve also taken on an SEO client, although
+they are kind of an experiment as well.  My goal is to follow the Hippocratic Oath and first do no harm or more simply put, not be evil.</p>
+
+<p>Thus far I’ve combed through his code (developer powers activate!) and found a few things that could be improved.  For starters,
+he didn’t have a sitemap which was my most immediate concern.  Secondly, the <code>&lt;title&gt;</code> tags weren’t nearly as descriptive as they could
+be.  Third, there was no <code>&lt;meta type='keyword'&gt;</code> tag which, in my opinion, is much better than having the tag full of random keywords
+that will rank for a short while, but ultimately result in some bad search engine ju ju.</p>
+
+<p>Luckily, he has a lot of good things going for him.  His site is already mobile optimized.  Just an FYI, if your site isn’t mobile
+freindly, you have until 4/21 to get on board or suffer the wrath of Google (<a href="http://www.firstscribe.com/blog/nine-things-need-know-googles-mobile-friendly-deadline/">the mobile friendly deadline is looming</a>)
+He’s also already setup with SSL or HTTPS which, as I learned at Search Marketing Expo, is going to become very important in the
+near future.  The UI/UX seems pretty solid as well.</p>
+
+<p>I offered the following suggestions to him to improve:  Make sure the title tags reflect the content and contain keywords, submit that sitemap
+and make sure it has the <code>https://</code> version of the addresses on there, get a Google My Business map on the page in place of the
+regular Google map, and insert some structured data.  I even wrote up the markup because it involves code and I love coding.</p>
+
+<p>A sanitized version of the markup looks like</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;application/ld+json&quot;</span><span class="o">&gt;</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;@context&quot;</span> <span class="o">:</span> <span class="s2">&quot;http://schema.org&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;@type&quot;</span> <span class="o">:</span> <span class="s2">&quot;LocalBusiness&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address&quot;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;@type&quot;</span> <span class="o">:</span> <span class="s2">&quot;PostalAddress&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;addressLocality&quot;</span> <span class="o">:</span> <span class="s2">&quot;City&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;addressRegion&quot;</span> <span class="o">:</span> <span class="s2">&quot;IN&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;streetAddress&quot;</span> <span class="o">:</span> <span class="s2">&quot;1313 Mockingbird Ln&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;openingHours&quot;</span> <span class="o">:</span> <span class="s2">&quot;Mo, Tu, We, Th, Fr 10:00-18:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;Computer repair, networking services, and internet hosting serving 46350, 46360, 46304, and surrounding areas.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Business Name&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;telephone&quot;</span> <span class="o">:</span> <span class="s2">&quot;(219) 555-1234&quot;</span>
+  <span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span></code></pre></div>
+
+<h2 id="now-i-play-the-waiting-game">Now I Play the Waiting Game</h2>
+
+<p>So how am I doing?  That’s one of the things that I’ve come to realize while learning SEO.  The results worth getting seem to not happen quickly.
+On an old site I used to run, I fell for some black-hat SEO tactics that taught me a quick lesson.  Just a heads up, if your site
+is hosted on a server that uses cPanel and you see that “SEO Tools” section just calling out for you to click it, be careful.  I
+spent a significant amount of money on one of those $99/month companies that guaranteed more links, more mentions, more traffic, and
+more business.  How could I go wrong?</p>
+
+<p>Very easily, actually.  I suddenly had 1000s of links pointing to me and hundreds of “blog posts” mentioning my site by title, but
+they were hard to read and the links were coming from less-than-reputable sources.  For the first week, I was getting page views from
+around the globe and my ranking was up for all of the keywords I chose, but, like Icarus, I flew too high and fell hard.  Google caught on
+to what the experts had done and I was all but blacklisted.  My ranking went down and my visits all but disappeared.  Let me be an example
+for you.  If someone tells you that they can get you to Page 1, Rank 1 for $99/month but they won’t tell you how or they won’t talk to
+you in with their voice as opposed to strictly email, run away as fast as you can.  Sure, you might see a temporary boost, but in the long
+run you’ll wish you hadn’t.</p>
+
+<h2 id="questions-for-you">Questions for You</h2>
+
+<p>So, now that I’ve started my transition over into the world of SEO, do you have any advice for me?  Am I on the right track as far as
+trying to boost the sites I’m working on or have I completely borked them up?  Since I’m still in the infancy of learning SEO, I am
+100% open to suggestion.</p>
+
+<p>Leave your thoughts in the comments or please, feel free to email me or connect with me whichever way works best for you.</p>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Share on</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://blog.local/development/seo-learning-curve/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.local/development/seo-learning-curve/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://blog.local/development/seo-learning-curve/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+        <p class="byline"><strong>The Steep Learning Curve of SEO</strong> was published on <time datetime="2015-03-09T17:17:12-05:00">March 09, 2015</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://blog.local/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="http://blog.local/development/secure-sites-https/" title="Securing Your Sites for HTTPS">Securing Your Sites for HTTPS</a></li>
+    
+      <li><a href="http://blog.local/development/json-ld-markup-generator/" title="JSON-LD Markup Generator">JSON-LD Markup Generator</a></li>
+    
+      <li><a href="http://blog.local/development/beauty-json-ld/" title="The Unbelieveable Beauty of JSON-LD">The Unbelieveable Beauty of JSON-LD</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    
+<div class="google-ads">
+  <!-- 320 x 50 ad -->
+  <!-- Jekyll Footer -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:320px;height:50px"
+       data-ad-client="ca-pub-9258516687573779"
+       data-ad-slot="7134545736"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div><!-- /.google-ads -->
+
+
+<span>&copy; 2017 J.D. Flynn.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://blog.local/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://blog.local/assets/js/scripts.min.js"></script>
+
+  
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'jamesdflynn'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</body>
+</html>
