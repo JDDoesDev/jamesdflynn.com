@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">J.D. Flynn and the Adventures in Web Development</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://blog.local/feed.xml" />
-<link rel="alternate" type="text/html" href="http://blog.local" />
-<updated>2017-09-04T12:10:54-05:00</updated>
-<id>http://blog.local/</id>
+<link rel="self" type="application/atom+xml" href="https://www.jamesdflynn.com/feed.xml" />
+<link rel="alternate" type="text/html" href="https://www.jamesdflynn.com" />
+<updated>2017-09-04T12:40:58-05:00</updated>
+<id>https://www.jamesdflynn.com/</id>
 <author>
   <name>J.D. Flynn</name>
-  <uri>http://blog.local/</uri>
+  <uri>https://www.jamesdflynn.com/</uri>
   <email>jd@jamesdflynn.com</email>
 </author>
 
@@ -17,13 +17,13 @@
 
 <entry>
   <title type="html"><![CDATA[Guess Who's Back]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.local/development/guess-whos-back/" />
-  <id>http://blog.local/development/guess-whos-back</id>
+  <link rel="alternate" type="text/html" href="https://www.jamesdflynn.com/development/guess-whos-back/" />
+  <id>https://www.jamesdflynn.com/development/guess-whos-back</id>
   <published>2017-08-06T14:57:03-05:00</published>
   <updated>2017-08-06T14:57:03-05:00</updated>
   <author>
     <name>J.D. Flynn</name>
-    <uri>http://blog.local</uri>
+    <uri>https://www.jamesdflynn.com</uri>
     <email>jd@jamesdflynn.com</email>
   </author>
   <content type="html">
@@ -41,7 +41,7 @@
 
 &lt;p&gt;What kinds of stuff would you like to read about from a Drupal developer from the Chicago area?&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/guess-whos-back/&quot;&gt;Guess Who&#39;s Back&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on August 06, 2017.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jamesdflynn.com/development/guess-whos-back/&quot;&gt;Guess Who&#39;s Back&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;https://www.jamesdflynn.com&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on August 06, 2017.&lt;/p&gt;
   </content>
 </entry>
 
@@ -50,13 +50,13 @@
 
 <entry>
   <title type="html"><![CDATA[Securing Your Sites for HTTPS]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.local/development/secure-sites-https/" />
-  <id>http://blog.local/development/secure-sites-https</id>
+  <link rel="alternate" type="text/html" href="https://www.jamesdflynn.com/development/secure-sites-https/" />
+  <id>https://www.jamesdflynn.com/development/secure-sites-https</id>
   <published>2015-03-29T15:17:14-05:00</published>
   <updated>2015-03-29T15:17:14-05:00</updated>
   <author>
     <name>J.D. Flynn</name>
-    <uri>http://blog.local</uri>
+    <uri>https://www.jamesdflynn.com</uri>
     <email>jd@jamesdflynn.com</email>
   </author>
   <content type="html">
@@ -157,7 +157,7 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}&lt;/code&gt;&lt;/pre&gt;&lt;
 
 &lt;div style=&quot;clear:both&quot;&gt;&lt;/div&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/secure-sites-https/&quot;&gt;Securing Your Sites for HTTPS&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 29, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jamesdflynn.com/development/secure-sites-https/&quot;&gt;Securing Your Sites for HTTPS&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;https://www.jamesdflynn.com&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 29, 2015.&lt;/p&gt;
   </content>
 </entry>
 
@@ -166,13 +166,13 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}&lt;/code&gt;&lt;/pre&gt;&lt;
 
 <entry>
   <title type="html"><![CDATA[JSON-LD Markup Generator]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.local/development/json-ld-markup-generator/" />
-  <id>http://blog.local/development/json-ld-markup-generator</id>
+  <link rel="alternate" type="text/html" href="https://www.jamesdflynn.com/development/json-ld-markup-generator/" />
+  <id>https://www.jamesdflynn.com/development/json-ld-markup-generator</id>
   <published>2015-03-22T15:10:35-05:00</published>
   <updated>2015-03-22T15:10:35-05:00</updated>
   <author>
     <name>J.D. Flynn</name>
-    <uri>http://blog.local</uri>
+    <uri>https://www.jamesdflynn.com</uri>
     <email>jd@jamesdflynn.com</email>
   </author>
   <content type="html">
@@ -467,7 +467,7 @@ to you.&lt;/p&gt;
 &lt;/script&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/json-ld-markup-generator/&quot;&gt;JSON-LD Markup Generator&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 22, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jamesdflynn.com/development/json-ld-markup-generator/&quot;&gt;JSON-LD Markup Generator&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;https://www.jamesdflynn.com&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 22, 2015.&lt;/p&gt;
   </content>
 </entry>
 
@@ -476,13 +476,13 @@ to you.&lt;/p&gt;
 
 <entry>
   <title type="html"><![CDATA[The Unbelieveable Beauty of JSON-LD]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.local/development/beauty-json-ld/" />
-  <id>http://blog.local/development/beauty-json-ld</id>
+  <link rel="alternate" type="text/html" href="https://www.jamesdflynn.com/development/beauty-json-ld/" />
+  <id>https://www.jamesdflynn.com/development/beauty-json-ld</id>
   <published>2015-03-16T06:11:26-05:00</published>
   <updated>2015-03-16T06:11:26-05:00</updated>
   <author>
     <name>J.D. Flynn</name>
-    <uri>http://blog.local</uri>
+    <uri>https://www.jamesdflynn.com</uri>
     <email>jd@jamesdflynn.com</email>
   </author>
   <content type="html">
@@ -577,7 +577,7 @@ up on the right side of the SERP when searched for directly thanks to a little s
 &lt;p&gt;So are you using semantic markup or JSON-LD in your projects, and what difference has it made?  Let me know in the comments.&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/beauty-json-ld/&quot;&gt;The Unbelieveable Beauty of JSON-LD&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 16, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jamesdflynn.com/development/beauty-json-ld/&quot;&gt;The Unbelieveable Beauty of JSON-LD&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;https://www.jamesdflynn.com&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 16, 2015.&lt;/p&gt;
   </content>
 </entry>
 
@@ -586,13 +586,13 @@ up on the right side of the SERP when searched for directly thanks to a little s
 
 <entry>
   <title type="html"><![CDATA[How Do You Deal with SEO Information Overload?]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.local/development/seo-information-overload/" />
-  <id>http://blog.local/development/seo-information-overload</id>
+  <link rel="alternate" type="text/html" href="https://www.jamesdflynn.com/development/seo-information-overload/" />
+  <id>https://www.jamesdflynn.com/development/seo-information-overload</id>
   <published>2015-03-11T16:50:16-05:00</published>
   <updated>2015-03-11T16:50:16-05:00</updated>
   <author>
     <name>J.D. Flynn</name>
-    <uri>http://blog.local</uri>
+    <uri>https://www.jamesdflynn.com</uri>
     <email>jd@jamesdflynn.com</email>
   </author>
   <content type="html">
@@ -648,7 +648,7 @@ we’re all in it against the search engines.”&lt;/p&gt;
 Let me know, I’m dying to learn!&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/seo-information-overload/&quot;&gt;How Do You Deal with SEO Information Overload?&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 11, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jamesdflynn.com/development/seo-information-overload/&quot;&gt;How Do You Deal with SEO Information Overload?&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;https://www.jamesdflynn.com&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 11, 2015.&lt;/p&gt;
   </content>
 </entry>
 
@@ -657,13 +657,13 @@ Let me know, I’m dying to learn!&lt;/p&gt;
 
 <entry>
   <title type="html"><![CDATA[The Steep Learning Curve of SEO]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.local/development/seo-learning-curve/" />
-  <id>http://blog.local/development/seo-learning-curve</id>
+  <link rel="alternate" type="text/html" href="https://www.jamesdflynn.com/development/seo-learning-curve/" />
+  <id>https://www.jamesdflynn.com/development/seo-learning-curve</id>
   <published>2015-03-09T17:17:12-05:00</published>
   <updated>2015-03-09T17:17:12-05:00</updated>
   <author>
     <name>J.D. Flynn</name>
-    <uri>http://blog.local</uri>
+    <uri>https://www.jamesdflynn.com</uri>
     <email>jd@jamesdflynn.com</email>
   </author>
   <content type="html">
@@ -745,7 +745,7 @@ trying to boost the sites I’m working on or have I completely borked them up? 
 &lt;p&gt;Leave your thoughts in the comments or please, feel free to email me or connect with me whichever way works best for you.&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/seo-learning-curve/&quot;&gt;The Steep Learning Curve of SEO&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 09, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jamesdflynn.com/development/seo-learning-curve/&quot;&gt;The Steep Learning Curve of SEO&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;https://www.jamesdflynn.com&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 09, 2015.&lt;/p&gt;
   </content>
 </entry>
 
@@ -754,13 +754,13 @@ trying to boost the sites I’m working on or have I completely borked them up? 
 
 <entry>
   <title type="html"><![CDATA[A Developer in the SEOs Den]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.local/development/developer-search-engine-den/" />
-  <id>http://blog.local/development/developer-search-engine-den</id>
+  <link rel="alternate" type="text/html" href="https://www.jamesdflynn.com/development/developer-search-engine-den/" />
+  <id>https://www.jamesdflynn.com/development/developer-search-engine-den</id>
   <published>2015-03-06T19:29:39-06:00</published>
   <updated>2015-03-06T19:29:39-06:00</updated>
   <author>
     <name>J.D. Flynn</name>
-    <uri>http://blog.local</uri>
+    <uri>https://www.jamesdflynn.com</uri>
     <email>jd@jamesdflynn.com</email>
   </author>
   <content type="html">
@@ -836,7 +836,7 @@ the wild, wild world of search engine optimization.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;EDIT:&lt;/strong&gt; Updated to include Twitter handles of everyone mentioned.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/developer-search-engine-den/&quot;&gt;A Developer in the SEOs Den&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 06, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jamesdflynn.com/development/developer-search-engine-den/&quot;&gt;A Developer in the SEOs Den&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;https://www.jamesdflynn.com&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 06, 2015.&lt;/p&gt;
   </content>
 </entry>
 
@@ -845,13 +845,13 @@ the wild, wild world of search engine optimization.&lt;/p&gt;
 
 <entry>
   <title type="html"><![CDATA[The First One About Web Development]]></title>
-  <link rel="alternate" type="text/html" href="http://blog.local/development/first-post-web-development/" />
-  <id>http://blog.local/development/first-post-web-development</id>
+  <link rel="alternate" type="text/html" href="https://www.jamesdflynn.com/development/first-post-web-development/" />
+  <id>https://www.jamesdflynn.com/development/first-post-web-development</id>
   <published>2015-03-05T17:26:11-06:00</published>
   <updated>2015-03-05T17:26:11-06:00</updated>
   <author>
     <name>J.D. Flynn</name>
-    <uri>http://blog.local</uri>
+    <uri>https://www.jamesdflynn.com</uri>
     <email>jd@jamesdflynn.com</email>
   </author>
   <content type="html">
@@ -906,7 +906,7 @@ drive is high enough and the passion is there.&lt;/p&gt;
 &lt;p&gt;to the last jQuery function I wrote, I’ve enjoyed every challenge that I’ve come up against and look forward to
 sharing some of my acquired skills with anyone willing to listen.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://blog.local/development/first-post-web-development/&quot;&gt;The First One About Web Development&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;http://blog.local&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 05, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.jamesdflynn.com/development/first-post-web-development/&quot;&gt;The First One About Web Development&lt;/a&gt; was originally published by J.D. Flynn at &lt;a href=&quot;https://www.jamesdflynn.com&quot;&gt;J.D. Flynn and the Adventures in Web Development&lt;/a&gt; on March 05, 2015.&lt;/p&gt;
   </content>
 </entry>
 

@@ -1,59 +1,59 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://blog.local/development/first-post-web-development/</loc>
+        <loc>https://www.jamesdflynn.com/development/first-post-web-development/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/development/developer-search-engine-den/</loc>
+        <loc>https://www.jamesdflynn.com/development/developer-search-engine-den/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/development/seo-learning-curve/</loc>
+        <loc>https://www.jamesdflynn.com/development/seo-learning-curve/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/development/seo-information-overload/</loc>
+        <loc>https://www.jamesdflynn.com/development/seo-information-overload/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/development/beauty-json-ld/</loc>
+        <loc>https://www.jamesdflynn.com/development/beauty-json-ld/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/development/json-ld-markup-generator/</loc>
+        <loc>https://www.jamesdflynn.com/development/json-ld-markup-generator/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/development/secure-sites-https/</loc>
+        <loc>https://www.jamesdflynn.com/development/secure-sites-https/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/development/guess-whos-back/</loc>
+        <loc>https://www.jamesdflynn.com/development/guess-whos-back/</loc>
         <lastmod>2017-09-04T12:10:49-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/404.html</loc>
+        <loc>https://www.jamesdflynn.com/404.html</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/development/</loc>
+        <loc>https://www.jamesdflynn.com/development/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/</loc>
+        <loc>https://www.jamesdflynn.com/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/posts/</loc>
+        <loc>https://www.jamesdflynn.com/posts/</loc>
         <lastmod>2017-08-06T13:40:23-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/about/</loc>
+        <loc>https://www.jamesdflynn.com/about/</loc>
         <lastmod>2017-08-06T15:12:53-05:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.local/assets/css/main.css</loc>
+        <loc>https://www.jamesdflynn.com/assets/css/main.css</loc>
         <lastmod>2017-08-06T13:09:47-05:00</lastmod>
     </url>
 </urlset>
